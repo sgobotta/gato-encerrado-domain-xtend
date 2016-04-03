@@ -1,3 +1,4 @@
+package org.uqbar
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
