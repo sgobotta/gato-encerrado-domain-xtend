@@ -4,6 +4,6 @@ Repositorio para el dominio de UIs
 
 Integrantes:
 
-Jesus Laime
-Juan Manuel Rodriguez Defago
+Jesus Laime,
+Juan Manuel Rodriguez Defago,
 Santiago Botta
