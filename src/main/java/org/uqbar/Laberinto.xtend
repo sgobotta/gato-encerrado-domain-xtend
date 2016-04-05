@@ -7,12 +7,11 @@ import java.util.ArrayList
 @Accessors
 class Laberinto {
 	
-	String nombre
+	String nombreLaberinto
 	List<Habitacion> habitaciones
 	
 	
-	new(String unNombre) {
-		this.nombre = unNombre
+	new() {
 		this.habitaciones = new ArrayList<Habitacion>
 	}
 	

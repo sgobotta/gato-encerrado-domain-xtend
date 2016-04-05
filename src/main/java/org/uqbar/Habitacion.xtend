@@ -7,14 +7,13 @@ import java.util.ArrayList
 @Accessors
 class Habitacion {
 
-	String nombre
+	String nombreHabitacion
 	boolean esInicial
 	boolean esFinal
 	List<Accion> acciones
 	List<Item> items
 	
-	new(String unNombre) {
-		this.nombre = unNombre
+	new() {
 		this.acciones = new ArrayList<Accion>
 		this.items = new ArrayList<Item>
 		this.esInicial = false

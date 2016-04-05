@@ -5,10 +5,10 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class Item {
 		
-	String nombre
+	String nombreItem
 	Accion accion
 		
 	new(String unNombre) {
-		this.nombre = unNombre
+		this.nombreItem = unNombre
 	}
 }

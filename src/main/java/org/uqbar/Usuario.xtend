@@ -20,7 +20,7 @@ class Usuario {
 	// Métodos de Laberinto
 	
 	def void crearLaberinto(String nombre) {		
-		var nuevoLaberinto = new Laberinto(nombre)
+		var nuevoLaberinto = new Laberinto()
 		laberintos.add(nuevoLaberinto)
 	}
 	
@@ -28,10 +28,14 @@ class Usuario {
 		laberintos.remove(laberinto)
 	}
 	
+	def void agregarLaberinto(Laberinto laberinto) {
+		laberintos.add(laberinto)
+	}
+	
 	// Métodos de Habitación
 	
 	def crearHabitacion(String nombre, Laberinto laberinto) {
-		var nuevaHabitacion = new Habitacion(nombre)
+		var nuevaHabitacion = new Habitacion()
 		laberinto.agregarHabitacion(nuevaHabitacion) 
 	}
 	
