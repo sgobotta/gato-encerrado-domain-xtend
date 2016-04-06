@@ -12,6 +12,11 @@ class Usuario {
 	String nombre
 	List<Laberinto> laberintos
 	
+	new(){
+		// Agregado para cumplir con Java Bean
+		laberintos = new ArrayList<Laberinto>
+	}
+	
 	new(String unNombre) {
 		this.nombre = unNombre
 		this.laberintos = new ArrayList<Laberinto>

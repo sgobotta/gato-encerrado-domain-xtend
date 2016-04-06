@@ -12,4 +12,8 @@ class AgregarAccionAppModel {
 	Laberinto laberintoSeleccionado
 	Habitacion habitacionSeleccionada
 	
+	new(){
+		
+	}
+	
 }
