@@ -5,16 +5,20 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class UsarItem extends Accion {
 		
-	Item item
+	String item
+	Accion accion
 		
-	new(String unNombre, Item unItem) {
+	new(String unNombre, String unItem, Accion unaAccion) {
 		super(unNombre)
 		this.item = unItem
+		this.accion = unaAccion
 	}
 	
 	override realizarAccion(Habitacion unaHabitacion, Jugador unJugador) {
-		unaHabitacion.agregarAccion(item.getAccion())
+		if(unJugador.tieneItem(item)){
+		unaHabitacion.agregarAccion(accion)
 		unJugador.eliminarItem(item)
+		}
 	}
 	
 }

@@ -13,11 +13,11 @@ class Habitacion {
 	boolean esInicial
 	boolean esFinal
 	List<Accion> acciones
-	List<Item> items
+	List<String> items
 	
 	new() {
 		this.acciones = new ArrayList<Accion>
-		this.items = new ArrayList<Item>
+		this.items = new ArrayList<String>
 		this.esInicial = false
 		this.esFinal = false
 	}
@@ -30,11 +30,11 @@ class Habitacion {
  		this.acciones.remove(unaAccion)
 	}
 	
-	def void agregarItem(Item unItem) {
+	def void agregarItem(String unItem) {
 		this.items.add(unItem)
 	}
 	
-	def void eliminarItem(Item unItem) {
+	def void eliminarItem(String unItem) {
 		this.items.remove(unItem)
 	}
 }

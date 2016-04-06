@@ -74,9 +74,8 @@ class Usuario {
 		habitacion.agregarAccion(nuevaAccion)
 	}
 	
-	def crearAccionParaUsarItem(String nombreAccionHabitacion, Item item, Habitacion habitacion, Mover accionParaItem) {
-		item.accion = accionParaItem
-		var accionParahabitacion = new UsarItem(nombreAccionHabitacion, item)
+	def crearAccionParaUsarItem(String nombreAccionHabitacion, String item, Habitacion habitacion, Mover accionParaItem) {
+		var accionParahabitacion = new UsarItem(nombreAccionHabitacion, item, accionParaItem)
 		habitacion.agregarAccion(accionParahabitacion)
 	}
 	

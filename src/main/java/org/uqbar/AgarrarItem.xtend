@@ -5,9 +5,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class AgarrarItem extends Accion {
 
-	Item item
+	String item
 	
-	new(String unNombre, Item unItem) {
+	new(String unNombre, String unItem) {
 		super(unNombre)
 		this.item = unItem			
 	}
