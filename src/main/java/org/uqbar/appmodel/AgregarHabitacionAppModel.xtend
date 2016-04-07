@@ -7,7 +7,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Observable
 @Accessors
 class AgregarHabitacionAppModel {
-	Habitacion habitacion
+	String nombreHabitacion
 	
 	new() {
 		
