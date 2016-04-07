@@ -28,8 +28,8 @@ class GatoEncerradoDummyData {
 	def Habitacion crearHabitacion(String nombreDeHabitacion, Boolean esHabitacionInicial, Boolean esHabitacionFinal) {
 		new Habitacion() => [
 			nombreHabitacion = nombreDeHabitacion
-			esInicial = esHabitacionInicial
-			esFinal = esHabitacionFinal
+			first = esHabitacionInicial
+			last = esHabitacionFinal
 		]
 	}
 	

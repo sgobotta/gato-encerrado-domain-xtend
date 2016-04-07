@@ -10,16 +10,14 @@ import org.uqbar.commons.utils.Observable
 class Habitacion {
 
 	String nombreHabitacion
-	boolean esInicial
-	boolean esFinal
+	boolean first
+	boolean last
 	List<Accion> acciones
-	List<String> items
 	
 	new() {
 		this.acciones = new ArrayList<Accion>
-		this.items = new ArrayList<String>
-		this.esInicial = false
-		this.esFinal = false
+		this.first = false
+		this.last = false
 	}
 	
 	def void agregarAccion(Accion unaAccion) {
@@ -30,11 +28,29 @@ class Habitacion {
  		this.acciones.remove(unaAccion)
 	}
 	
-	def void agregarItem(String unItem) {
-		this.items.add(unItem)
+	def getTodosLosItems() {
+		var list = new ArrayList<String>()
+		for(acc : acciones){
+			list.add(acc.item)
+		}
+		list
 	}
 	
-	def void eliminarItem(String unItem) {
-		this.items.remove(unItem)
+/* 
+	def void setFirst(boolean bool){
+		if(last && bool){
+
+		} else {
+			first = bool
+		}
 	}
+	
+	def void setLast(boolean bool){
+		if(first && bool){
+
+		} else {
+			last = bool
+		}
+	
+	} */
 }

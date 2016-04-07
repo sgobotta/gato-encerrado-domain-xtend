@@ -17,5 +17,10 @@ abstract class Accion {
 		this.nombre = unNombre
 	}
 
-	def abstract void realizarAccion(Habitacion unaHabitacion, Jugador unJugador) 
+	def abstract void realizarAccion(Habitacion unaHabitacion, Jugador unJugador)
+	
+	def String getItem(){
+		null
+	}
+	
 }

@@ -47,7 +47,7 @@ class Usuario {
 	def eliminarHabitacion(Habitacion habitacion, Laberinto laberinto) {
 		laberinto.eliminarHabitacion(habitacion)
 	}
-	
+	/*  No hace falta, porque el usuario no es mas el AppModel
 	def marcarHabitacionComoInicial(Habitacion habitacion, Laberinto laberinto) {
 		//Si ya existe una habitación marcada como Inicial, debería ser desmarcada
 		//y luego marcar la nueva habitación
@@ -61,6 +61,7 @@ class Usuario {
 		habitacion.setEsFinal(true)
 		habitacion.setEsInicial(false) //Puede ser innecesario
 	}
+	 */
 	
 	// Métodos de Acción
 	

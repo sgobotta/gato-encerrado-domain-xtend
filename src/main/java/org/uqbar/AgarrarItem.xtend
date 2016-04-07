@@ -17,8 +17,12 @@ class AgarrarItem extends Accion {
 	}
 	
 	override realizarAccion(Habitacion unaHabitacion, Jugador unJugador) {
-		 unaHabitacion.eliminarItem(item)
 		 unJugador.agarrarItem(item)
+		 unaHabitacion.eliminarAccion(this)
+	}
+	
+	override getItem(){
+		item
 	}
 	
 }
