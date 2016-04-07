@@ -8,6 +8,10 @@ class UsarItem extends Accion {
 	String item
 	Accion accion
 		
+	new(String unNombre) {
+		super(unNombre)
+	}	
+	
 	new(String unNombre, String unItem, Accion unaAccion) {
 		super(unNombre)
 		this.item = unItem
