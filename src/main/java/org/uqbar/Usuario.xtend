@@ -10,11 +10,13 @@ import org.uqbar.commons.utils.Observable
 class Usuario {
 
 	String nombre
-	List<Laberinto> laberintos
+	String password
+	List<Laberinto> laberintos = new ArrayList<Laberinto> 
+	
+	new(){}
 	
 	new(String unNombre) {
 		this.nombre = unNombre
-		this.laberintos = new ArrayList<Laberinto>
 	}
 	
 	// Métodos de Laberinto
