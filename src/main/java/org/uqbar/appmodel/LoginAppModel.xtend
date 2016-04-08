@@ -14,6 +14,7 @@ class LoginAppModel {
 	String contraseñaDeUsuarioALogeaer
 	Usuario usuarioSeleccionado
 	LoginService servicioDeLogeo
+    boolean usuarioSeleccionadoPuedeAcceder
 	
 	new(){
 		servicioDeLogeo = new LoginService()
@@ -23,8 +24,10 @@ class LoginAppModel {
 	def logearUsuario(){
 		if(this.estaValidado()){
 			usuarioSeleccionado = servicioDeLogeo.login(nombreDeUsuarioALogear, contraseñaDeUsuarioALogeaer)
+			usuarioSeleccionadoPuedeAcceder = true
 		}
 		else{
+		    usuarioSeleccionadoPuedeAcceder = false
 			throw new MyLoginException("Debe ingresar campo")
 		}
 	}

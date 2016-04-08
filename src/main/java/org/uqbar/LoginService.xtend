@@ -15,6 +15,7 @@ class LoginService {
 	
 	new(){
 		usuarios = new ArrayList<Usuario>()
+		usuarios.add(new Usuario("Pepe"))
 	}
 	
 	def login(String nombre, String password){

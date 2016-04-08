@@ -12,8 +12,9 @@ class Usuario {
 
 	String nombre
 	String password
-	List<Laberinto> laberintos = new ArrayList<Laberinto> 
+	List<Laberinto> laberintos = new ArrayList<Laberinto>
 	
+	// 
 	
 	new(){
 		// Agregado para cumplir con Java Bean
