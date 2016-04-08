@@ -3,7 +3,7 @@ package org.uqbar
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
-class Mover extends Accion {
+class IrAHabitacion extends Accion {
 	
 	new(String unNombre) {
 		super(unNombre)

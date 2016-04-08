@@ -4,6 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
 import java.util.ArrayList
 import org.uqbar.commons.utils.Observable
+import org.uqbar.exceptions.UserException
 
 @Observable
 @Accessors
@@ -13,7 +14,11 @@ class Usuario {
 	String password
 	List<Laberinto> laberintos = new ArrayList<Laberinto> 
 	
-	new(){}
+	
+	new(){
+		// Agregado para cumplir con Java Bean
+		laberintos = new ArrayList<Laberinto>
+	}
 	
 	new(String unNombre) {
 		this.nombre = unNombre
@@ -22,7 +27,7 @@ class Usuario {
 	// Métodos de Laberinto
 	
 	def void crearLaberinto(String nombre) {		
-		var nuevoLaberinto = new Laberinto(nombre)
+		var nuevoLaberinto = new Laberinto()
 		laberintos.add(nuevoLaberinto)
 	}
 	
@@ -30,17 +35,21 @@ class Usuario {
 		laberintos.remove(laberinto)
 	}
 	
+	def void agregarLaberinto(Laberinto laberinto) {
+		laberintos.add(laberinto)
+	}
+	
 	// Métodos de Habitación
 	
 	def crearHabitacion(String nombre, Laberinto laberinto) {
-		var nuevaHabitacion = new Habitacion(nombre)
+		var nuevaHabitacion = new Habitacion()
 		laberinto.agregarHabitacion(nuevaHabitacion) 
 	}
 	
 	def eliminarHabitacion(Habitacion habitacion, Laberinto laberinto) {
 		laberinto.eliminarHabitacion(habitacion)
 	}
-	
+	/*  No hace falta, porque el usuario no es mas el AppModel
 	def marcarHabitacionComoInicial(Habitacion habitacion, Laberinto laberinto) {
 		//Si ya existe una habitación marcada como Inicial, debería ser desmarcada
 		//y luego marcar la nueva habitación
@@ -54,11 +63,12 @@ class Usuario {
 		habitacion.setEsFinal(true)
 		habitacion.setEsInicial(false) //Puede ser innecesario
 	}
+	 */
 	
 	// Métodos de Acción
 	
 	def crearAccionParaMoverse(String nombre, Habitacion habitacion) {
-		var nuevaAccion = new Mover(nombre)
+		var nuevaAccion = new IrAHabitacion(nombre)
 		habitacion.agregarAccion(nuevaAccion)
 	}
 	
@@ -67,10 +77,23 @@ class Usuario {
 		habitacion.agregarAccion(nuevaAccion)
 	}
 	
-	def crearAccionParaUsarItem(String nombreAccionHabitacion, Item item, Habitacion habitacion, Mover accionParaItem) {
-		item.accion = accionParaItem
-		var accionParahabitacion = new UsarItem(nombreAccionHabitacion, item)
+	def crearAccionParaUsarItem(String nombreAccionHabitacion, String item, Habitacion habitacion, IrAHabitacion accionParaItem) {
+		var accionParahabitacion = new UsarItem(nombreAccionHabitacion, item, accionParaItem)
 		habitacion.agregarAccion(accionParahabitacion)
 	}
+	
+	//Metodos de Login
+	def estaValidado(){
+		if(this.ingresoCampo(nombre)){
+			throw new UserException("Debe ingresar nombre")
+			}
+		if(this.ingresoCampo(password)){
+			throw new UserException("Debe ingresar un password")
+		}			
+	}
+	def ingresoCampo(String value){
+		return (value != null) && (value.trim.equals(""))
+	}
+	
 	
 }

@@ -3,22 +3,21 @@ package org.uqbar
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
 import java.util.ArrayList
+import org.uqbar.commons.utils.Observable
 
 @Accessors
+@Observable
 class Habitacion {
 
-	String nombre
-	boolean esInicial
-	boolean esFinal
+	String nombreHabitacion
+	boolean first
+	boolean last
 	List<Accion> acciones
-	List<Item> items
 	
-	new(String unNombre) {
-		this.nombre = unNombre
+	new() {
 		this.acciones = new ArrayList<Accion>
-		this.items = new ArrayList<Item>
-		this.esInicial = false
-		this.esFinal = false
+		this.first = false
+		this.last = false
 	}
 	
 	def void agregarAccion(Accion unaAccion) {
@@ -29,11 +28,29 @@ class Habitacion {
  		this.acciones.remove(unaAccion)
 	}
 	
-	def void agregarItem(Item unItem) {
-		this.items.add(unItem)
+	def getTodosLosItems() {
+		var list = new ArrayList<String>()
+		for(acc : acciones){
+			list.add(acc.item)
+		}
+		list
 	}
 	
-	def void eliminarItem(Item unItem) {
-		this.items.remove(unItem)
+/* 
+	def void setFirst(boolean bool){
+		if(last && bool){
+
+		} else {
+			first = bool
+		}
 	}
+	
+	def void setLast(boolean bool){
+		if(first && bool){
+
+		} else {
+			last = bool
+		}
+	
+	} */
 }

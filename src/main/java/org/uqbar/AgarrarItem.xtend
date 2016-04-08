@@ -5,9 +5,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 @Accessors
 class AgarrarItem extends Accion {
 
-	Item item
+	String item
 	
-	new(String unNombre, Item unItem) {
+	new(String unNombre, String unItem) {
 		super(unNombre)
 		this.item = unItem			
 	}
@@ -17,8 +17,12 @@ class AgarrarItem extends Accion {
 	}
 	
 	override realizarAccion(Habitacion unaHabitacion, Jugador unJugador) {
-		 unaHabitacion.eliminarItem(item)
 		 unJugador.agarrarItem(item)
+		 unaHabitacion.eliminarAccion(this)
+	}
+	
+	override getItem(){
+		item
 	}
 	
 }

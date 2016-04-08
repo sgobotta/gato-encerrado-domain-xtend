@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.class
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -17,3 +18,4 @@
 /src/test/xtend-gen
 /src/main/generated-sources/xtend
 /src/test/generated-sources/xtend
+
