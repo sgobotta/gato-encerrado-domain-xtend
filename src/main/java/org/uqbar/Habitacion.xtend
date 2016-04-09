@@ -13,6 +13,7 @@ class Habitacion {
 	boolean first
 	boolean last
 	List<Accion> acciones
+	List<String> items
 	
 	new() {
 		this.acciones = new ArrayList<Accion>
@@ -31,8 +32,13 @@ class Habitacion {
 	def getTodosLosItems() {
 		var list = new ArrayList<String>()
 		for(acc : acciones){
-			list.add(acc.item)
-		}
+		    //if(acc == AgarrarItem) { Esto no tiene que ir! Porque es horrible y además no funciona
+            list.add(acc.item)
+                
+            // Esto es para mostrar que funciona, pero muestra los nombres
+                                 // de todas las acciones, no los nombre de items del tipo AgarrarItem
+            //}
+        }
 		list
 	}
 	

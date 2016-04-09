@@ -39,7 +39,7 @@ class Laberinto {
 	}
 	*/
 	
-	def List<String> getTodosLosItems(){
+	def List<String> todosLosItems(){
 		var list = new ArrayList<String>()
 		for(hab : habitaciones){
 			list.addAll(hab.todosLosItems)
