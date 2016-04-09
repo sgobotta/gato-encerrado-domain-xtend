@@ -32,12 +32,9 @@ class Habitacion {
 	def getTodosLosItems() {
 		var list = new ArrayList<String>()
 		for(acc : acciones){
-		    //if(acc == AgarrarItem) { Esto no tiene que ir! Porque es horrible y además no funciona
+		    if(acc.getItem != null){
             list.add(acc.item)
-                
-            // Esto es para mostrar que funciona, pero muestra los nombres
-                                 // de todas las acciones, no los nombre de items del tipo AgarrarItem
-            //}
+            }
         }
 		list
 	}
