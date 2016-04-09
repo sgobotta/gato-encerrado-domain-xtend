@@ -15,9 +15,20 @@ class GatoEncerradoAppModel {
 	Laberinto laberintoSeleccionado
 	Habitacion habitacionSeleccionada
 	Accion accionSeleccionada
+	String nombreHabitacionSeleccionada
+	String nombreLaberintoSeleccionado
 	
 	new(){
 		
 	}
 	
+	def setLaberintoSeleccionado(Laberinto laberinto){
+		laberintoSeleccionado = laberinto
+		setNombreLaberintoSeleccionado(laberinto.nombreLaberinto)
+	}
+	
+	def setHabitacionSeleccionada(Habitacion habitacion){
+		habitacionSeleccionada = habitacion
+		setNombreHabitacionSeleccionada(habitacion.nombreHabitacion)
+	}
 }
