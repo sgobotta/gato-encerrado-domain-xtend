@@ -63,7 +63,7 @@ class GatoEncerradoDummyData {
 	}
 	
 	def Accion crearAccionAgarrarItem(String nombreDeAccion, String nombreItem) {
-		new AgarrarItem(nombreDeAccion, nombreItem)
+		new AgarrarItem(nombreItem)
 	}
 	
 	def crearAccionIrAHabitacionItem(String nombreDeAccion) {

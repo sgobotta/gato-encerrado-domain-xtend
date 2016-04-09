@@ -7,15 +7,10 @@ class AgarrarItem extends Accion {
 
 	String nombreItem
 	
-	new(String unNombre, String unItem) {
-		super(unNombre)
-		this.nombreItem = unItem			
+	new(String unItem) {
+		this.setNombreItem(unItem)			
 	}
-	
-	new(String unNombre) {
-		super(unNombre)
-	}
-	
+		
 	new() {
 	    
 	}
@@ -29,4 +24,8 @@ class AgarrarItem extends Accion {
 		nombreItem
 	}
 	
+	def setNombreItem(String itemName){
+		this.nombreItem = itemName
+		this.nombre = "Agarrar " +itemName
+	}
 }
