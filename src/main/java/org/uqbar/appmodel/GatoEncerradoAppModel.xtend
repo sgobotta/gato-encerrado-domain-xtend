@@ -21,14 +21,5 @@ class GatoEncerradoAppModel {
 	new(){
 		
 	}
-	
-	def setLaberintoSeleccionado(Laberinto laberinto){
-		laberintoSeleccionado = laberinto
-		setNombreLaberintoSeleccionado(laberinto.nombreLaberinto)
-	}
-	
-	def setHabitacionSeleccionada(Habitacion habitacion){
-		habitacionSeleccionada = habitacion
-		setNombreHabitacionSeleccionada(habitacion.nombreHabitacion)
-	}
+
 }
