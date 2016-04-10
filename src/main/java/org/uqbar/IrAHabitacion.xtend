@@ -21,7 +21,7 @@ class IrAHabitacion extends Accion {
 	}
 	
 	def setHabitacion(Habitacion hab){
-		habitacion = habitacion
+		habitacion = hab
 		setNombre("Ir a la habitacion "+habitacion.nombreHabitacion)
 	}
 

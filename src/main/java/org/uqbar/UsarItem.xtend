@@ -37,7 +37,11 @@ class UsarItem extends Accion implements ActionAgregable {
 	}
 	
 	override agregarAccion(Accion acc) {
-		this.accion = acc
+		setAccion(acc)
 	}
 	
+	def setAccion(Accion acc){
+		this.accion = acc
+		setNombre(getNombre+ " para " + acc.getNombre)
+	}
 }
