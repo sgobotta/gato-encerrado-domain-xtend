@@ -24,6 +24,7 @@ class UsarItem extends Accion implements ActionAgregable {
 		
 	}	
 	
+	// Probablemente cambie cuando avancemos en los proximos tps (UI WEB sobre todo)
 	override realizarAccion(Habitacion unaHabitacion, Jugador unJugador) {
 		if(unJugador.tieneItem(item)){
 		unaHabitacion.agregarAccion(accion)

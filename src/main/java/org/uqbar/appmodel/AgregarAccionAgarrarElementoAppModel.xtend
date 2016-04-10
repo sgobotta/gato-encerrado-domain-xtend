@@ -12,7 +12,6 @@ class AgregarAccionAgarrarElementoAppModel {
 	
 	Laberinto laberintoSeleccionado
 	Habitacion habitacionSeleccionada
-	String nombreAccion
 	String nombreItem
 	ActionAgregable objetoParaAgregarleAccion
 	

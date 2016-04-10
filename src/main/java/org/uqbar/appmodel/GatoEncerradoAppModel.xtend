@@ -15,8 +15,6 @@ class GatoEncerradoAppModel {
 	Laberinto laberintoSeleccionado
 	Habitacion habitacionSeleccionada
 	Accion accionSeleccionada
-	String nombreHabitacionSeleccionada
-	String nombreLaberintoSeleccionado
 	
 	new(){
 		
