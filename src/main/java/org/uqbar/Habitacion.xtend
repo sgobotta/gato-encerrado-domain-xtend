@@ -7,7 +7,7 @@ import org.uqbar.commons.utils.Observable
 
 @Accessors
 @Observable
-class Habitacion {
+class Habitacion implements ActionAgregable{
 
 	String nombreHabitacion
 	boolean first
@@ -21,7 +21,7 @@ class Habitacion {
 		this.last = false
 	}
 	
-	def void agregarAccion(Accion unaAccion) {
+	override void agregarAccion(Accion unaAccion) {
  		this.acciones.add(unaAccion)
 	}
 	
