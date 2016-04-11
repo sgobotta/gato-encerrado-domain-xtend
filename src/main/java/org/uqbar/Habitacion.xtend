@@ -39,21 +39,12 @@ class Habitacion implements ActionAgregable{
 		list
 	}
 	
-/* 
-	def void setFirst(boolean bool){
-		if(last && bool){
-
-		} else {
-			first = bool
-		}
-	}
-	
-	def void setLast(boolean bool){
-		if(first && bool){
-
-		} else {
-			last = bool
-		}
-	
-	} */
+//	def void setFirst(boolean bool){
+//
+//	}
+//	
+//	def void setLast(boolean bool){
+//
+//	
+//	} 
 }
