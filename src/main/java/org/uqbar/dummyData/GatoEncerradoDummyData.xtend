@@ -31,7 +31,7 @@ class GatoEncerradoDummyData {
 			
 			agregarLaberinto(crearLaberintoDummy("Bosque Oscuro"))
 			laberintos.get(1).agregarHabitacion(crearHabitacion("Area arbolada", true, false))
-			laberintos.get(1).agregarHabitacion(crearHabitacion("Puente", true, false))
+			laberintos.get(1).agregarHabitacion(crearHabitacion("Puente", false, false))
 			laberintos.get(1).agregarHabitacion(crearHabitacion("Cascada", true, false))
 			
 			laberintos.get(1).habitaciones.get(0).agregarAccion(crearAccionIrAHabitacionItem("Ir a habitación - Puente"))
