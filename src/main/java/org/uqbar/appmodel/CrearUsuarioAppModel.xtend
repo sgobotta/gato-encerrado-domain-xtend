@@ -13,7 +13,7 @@ class CrearUsuarioAppModel {
 		String nombre
 		String password
 		
-		new(LoginService servicio){
+	new(LoginService servicio){
 			servicioDeLogeo = servicio
 			usuarioACrear = new Usuario()
 		}

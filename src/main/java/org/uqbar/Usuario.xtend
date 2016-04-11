@@ -85,15 +85,15 @@ class Usuario {
 	
 	//Metodos de Login
 	def estaValidado(){
-		if(this.ingresoCampo(nombre)){
+		if(!this.ingresoCampo(nombre)){
 			throw new UserException("Debe ingresar nombre")
 			}
-		if(this.ingresoCampo(password)){
+		if(!this.ingresoCampo(password)){
 			throw new UserException("Debe ingresar un password")
 		}			
 	}
 	def ingresoCampo(String value){
-		return (value != null) && (value.trim.equals(""))
+		return (value != null) && (!value.trim.equals(""))
 	}
 	
 	

@@ -11,7 +11,7 @@ import org.uqbar.exceptions.MyLoginException
 class LoginAppModel {
 
 	String nombreDeUsuarioALogear
-	String contraseñaDeUsuarioALogeaer
+	String contraseñaDeUsuarioALogear
 	Usuario usuarioSeleccionado
 	LoginService servicioDeLogeo
     boolean usuarioSeleccionadoPuedeAcceder
@@ -20,10 +20,11 @@ class LoginAppModel {
 		servicioDeLogeo = new LoginService()
 	}
 	
-	
+	//validar el nombre y contrasena ingresados
 	def logearUsuario(){
 		if(this.estaValidado()){
-			usuarioSeleccionado = servicioDeLogeo.login(nombreDeUsuarioALogear, contraseñaDeUsuarioALogeaer)
+			//intenta logear al usuario validado
+			usuarioSeleccionado = servicioDeLogeo.login(nombreDeUsuarioALogear, contraseñaDeUsuarioALogear)
 			usuarioSeleccionadoPuedeAcceder = true
 		}
 		else{
@@ -33,11 +34,12 @@ class LoginAppModel {
 	}
 	
 	def estaValidado(){
-		return this.campoValido(nombreDeUsuarioALogear) && this.campoValido(contraseñaDeUsuarioALogeaer)
+		return this.campoValido(nombreDeUsuarioALogear) && this.campoValido(contraseñaDeUsuarioALogear)
 	}
 	
 	def campoValido(String value) {
-		return (value.trim.equals("")) && (value != null)
+		//System.out.println(value)
+		return value != null && !value.trim.equals("") 
 	}
 	
 }
