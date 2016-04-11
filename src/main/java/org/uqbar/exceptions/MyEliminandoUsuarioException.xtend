@@ -1,6 +1,8 @@
 package org.uqbar.exceptions
 
-class MyEliminandoUsuarioException extends Exception{
+import org.uqbar.commons.model.UserException
+
+class MyEliminandoUsuarioException extends UserException{
 	new(String msg){
 		super(msg)
 	}

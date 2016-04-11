@@ -1,6 +1,8 @@
 package org.uqbar.exceptions
 
-class MyLoginException extends Exception{
+import org.uqbar.commons.model.UserException
+
+class MyLoginException extends UserException{
 	new(String msg){
 		super(msg)
 	}

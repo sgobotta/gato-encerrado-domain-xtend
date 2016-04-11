@@ -15,9 +15,11 @@ class LoginAppModel {
 	Usuario usuarioSeleccionado
 	LoginService servicioDeLogeo
     boolean usuarioSeleccionadoPuedeAcceder
+	String description
 	
 	new(){
 		servicioDeLogeo = new LoginService()
+		description = "log in"
 	}
 	
 	//validar el nombre y contrasena ingresados
@@ -29,7 +31,8 @@ class LoginAppModel {
 		}
 		else{
 		    usuarioSeleccionadoPuedeAcceder = false
-			throw new MyLoginException("Debe ingresar campo")
+		    description = "Debe completar los campos"
+			throw new MyLoginException("Debe ingresar algun campo")
 		}
 	}
 	
