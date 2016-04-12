@@ -2,7 +2,9 @@ package org.uqbar
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.model.UserException
+import org.uqbar.commons.utils.Observable
 
+@Observable
 @Accessors
 class Account {
 	String nombre

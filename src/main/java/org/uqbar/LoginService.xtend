@@ -34,8 +34,8 @@ class LoginService {
 	}
 
 	def void registrarCuenta(Account cuenta){
-		var existeUsuario = this.existeCuentaConNombre(cuenta.nombre)
-		if(!existeUsuario){
+		var existeCuenta = this.existeCuentaConNombre(cuenta.nombre)
+		if(!existeCuenta){
 			accounts.add(cuenta)			
 		}
 		else{
@@ -63,7 +63,7 @@ class LoginService {
 	}
 	
 	def existeCuentaConNombre(String nombre){
-		return accounts.exists[Account cuenta | cuenta.nombre.equals(nombre)]
+		return accounts.exists[Account cuenta | cuenta.tieneNombre(nombre)]
 	}
 	
 

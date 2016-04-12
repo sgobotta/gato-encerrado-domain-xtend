@@ -7,11 +7,11 @@ import org.uqbar.Account
 
 @Observable
 @Accessors
-class CrearUsuarioAppModel {
+class CrearCuentaAppModel {
 		LoginService servicioDeLogeo
 		Account cuentaACrear
-		String nombre
-		String password
+		String nombreCuentaACrear
+		String passwordCuentaACrear
 		
 	new(LoginService servicio){
 			servicioDeLogeo = servicio
@@ -19,15 +19,15 @@ class CrearUsuarioAppModel {
 		}
 	
 	def armarCuenta() {
-		cuentaACrear.nombre = nombre
-		cuentaACrear.password = password
+		cuentaACrear.nombre = nombreCuentaACrear
+		cuentaACrear.password = passwordCuentaACrear
 	}
 	
 	def validarUsuario() {
 		cuentaACrear.estaValidado()
 	}
 	
-	def registrarUsuario() {
+	def registrarCuenta(){
 		this.armarCuenta()
 		this.validarUsuario()
 		servicioDeLogeo.registrarCuenta(cuentaACrear)
