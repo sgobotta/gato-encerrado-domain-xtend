@@ -1,36 +1,36 @@
 package org.uqbar.appmodel
 
 import org.uqbar.LoginService
-import org.uqbar.Usuario
 import org.uqbar.commons.utils.Observable
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.Account
 
 @Observable
 @Accessors
 class CrearUsuarioAppModel {
 		LoginService servicioDeLogeo
-		Usuario usuarioACrear
+		Account cuentaACrear
 		String nombre
 		String password
 		
 	new(LoginService servicio){
 			servicioDeLogeo = servicio
-			usuarioACrear = new Usuario()
+			cuentaACrear = new Account()
 		}
 	
-	def armarUsuario() {
-		usuarioACrear.nombre = nombre
-		usuarioACrear.password = password
+	def armarCuenta() {
+		cuentaACrear.nombre = nombre
+		cuentaACrear.password = password
 	}
 	
 	def validarUsuario() {
-		usuarioACrear.estaValidado()
+		cuentaACrear.estaValidado()
 	}
 	
 	def registrarUsuario() {
-		this.armarUsuario()
+		this.armarCuenta()
 		this.validarUsuario()
-		servicioDeLogeo.registrarUsuario(usuarioACrear)
+		servicioDeLogeo.registrarCuenta(cuentaACrear)
 	}
 	
 }

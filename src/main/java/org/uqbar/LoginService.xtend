@@ -11,60 +11,60 @@ import org.uqbar.exceptions.MyEliminandoUsuarioException
 @Observable
 @Accessors
 class LoginService {
-	List<Usuario> usuarios
+	List<Account> accounts
 	
 	new(){
-		usuarios = new ArrayList<Usuario>()
-		usuarios.add(new Usuario("Pepe"))
+		accounts = new ArrayList<Account>()
 	}
 	
 	def login(String nombre, String password){
 		
-		if(this.existeUsuarioConNombre(nombre)){
-			var usuario = this.getUsuario(nombre)
-			if(usuario.password.equals(password)){
-				//aca deberia hacer otra cosa
-				return usuario
+		if(this.existeCuentaConNombre(nombre)){
+			var cuenta = this.getCuenta(nombre)
+			if(cuenta.tienePassword(password)){
+				return cuenta
 			}
 			else{
 				throw new MyLoginException("Contrasenha invalida")
 			}
 		}
 		else{
-			throw new MyLoginException("no existe ese usuario")
+			throw new MyLoginException("No existe ese usuario")
 		}
 	}
-	
-	def getUsuario(String nombre) {
-		for(Usuario user: usuarios){
-			if(user.nombre.equals(nombre)){
-				return user
-			}
-		}
-	}
-	
-	def existeUsuarioConNombre(String nombre){
-		return usuarios.exists[Usuario usuario | usuario.nombre.equals(nombre)]
-	}
-	
-	def void registrarUsuario(Usuario usuario){
-		var existeUsuario = this.existeUsuarioConNombre(usuario.nombre)
+
+	def void registrarCuenta(Account cuenta){
+		var existeUsuario = this.existeCuentaConNombre(cuenta.nombre)
 		if(!existeUsuario){
-			usuarios.add(usuario)			
+			accounts.add(cuenta)			
 		}
 		else{
-			throw new MyRegistracionException("lanza una interfaz amigable, ya existe ese usuario")
+			throw new MyRegistracionException("Ya existe ese usuario")
 		}
 
 	}
 	
-	def void eliminarUsuario(Usuario usuario){
-		var existeUsuario = this.existeUsuarioConNombre(usuario.nombre)
-		if(existeUsuario){
-			usuarios.remove(usuario)
+	def void eliminarCuenta(Account cuenta){
+		var existeCuenta = this.existeCuentaConNombre(cuenta.nombre)
+		if(existeCuenta){
+			accounts.remove(cuenta)
 		}
 		else{
-			throw new MyEliminandoUsuarioException("lanza una interfaz amigable, no existe ese usuario a borrar")
+			throw new MyEliminandoUsuarioException("No existe el usuario a borrar")
 		}
 	}
+	
+	def getCuenta(String nombre) {
+		for(Account account: accounts){
+			if(account.tieneNombre(nombre)){
+				return account
+			}
+		}
+	}
+	
+	def existeCuentaConNombre(String nombre){
+		return accounts.exists[Account cuenta | cuenta.nombre.equals(nombre)]
+	}
+	
+
 }

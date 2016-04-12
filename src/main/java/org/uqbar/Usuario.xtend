@@ -83,18 +83,7 @@ class Usuario {
 		habitacion.agregarAccion(accionParahabitacion)
 	}
 	
-	//Metodos de Login
-	def estaValidado(){
-		if(!this.ingresoCampo(nombre)){
-			throw new UserException("Debe ingresar nombre")
-			}
-		if(!this.ingresoCampo(password)){
-			throw new UserException("Debe ingresar un password")
-		}			
-	}
-	def ingresoCampo(String value){
-		return (value != null) && (!value.trim.equals(""))
-	}
+
 	
 	
 }

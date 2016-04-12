@@ -8,20 +8,20 @@ import org.junit.Assert
 
 class TestLoginService {
 	
-	Usuario pepillo
+	Account pepillo
 	
-	Usuario cepillo
+	Account cepillo
 	
 	LoginService sudo
 	
 	@Before
 	def void setUp(){
-		pepillo = new Usuario=>[
+		pepillo = new Account=>[
 			nombre = 'pepillo'
 			password = '1234'
 		]
 		
-		cepillo = new Usuario=>[
+		cepillo = new Account=>[
 			nombre = 'cepillo'
 			password = '1234'
  		]
@@ -29,13 +29,13 @@ class TestLoginService {
 		
 		sudo = new LoginService()
 		
-		sudo.registrarUsuario(pepillo)
+		sudo.registrarCuenta(pepillo)
 	}
 	
 	@Test(expected = MyLoginException)
 	def void testLogearUnUsuarioQueNoExisteArrojaUnaExcepcion(){
 		sudo.login(cepillo.nombre, cepillo.password)
-		Assert.assertEquals(false, sudo.existeUsuarioConNombre(cepillo.nombre))
+		Assert.assertEquals(false, sudo.existeCuentaConNombre(cepillo.nombre))
 	}
 	
 	@Test
@@ -46,19 +46,19 @@ class TestLoginService {
 	
 	@Test(expected = MyRegistracionException)
 	def void testRegistrarUnUsuarioConUnNombreQueYaExisteArrojaUnaExcepcion(){
-		sudo.registrarUsuario(pepillo)
-		Assert.assertEquals(true, sudo.existeUsuarioConNombre(pepillo.nombre))
+		sudo.registrarCuenta(pepillo)
+		Assert.assertEquals(true, sudo.existeCuentaConNombre(pepillo.nombre))
 	}
 	
 	@Test
 	def void testRegistrarUnUsuarioConUnNombreQueNoExisteLoAgregaAlSistema(){
 		
-		var existia = sudo.existeUsuarioConNombre(cepillo.nombre)
+		var existia = sudo.existeCuentaConNombre(cepillo.nombre)
 		
-		sudo.registrarUsuario(cepillo)
+		sudo.registrarCuenta(cepillo)
 		
 		Assert.assertEquals(false, existia)
-		Assert.assertEquals(true, sudo.existeUsuarioConNombre(cepillo.nombre))
+		Assert.assertEquals(true, sudo.existeCuentaConNombre(cepillo.nombre))
 	}
 	
 }
