@@ -2,6 +2,7 @@ package org.uqbar
 
 import org.eclipse.xtend.lib.annotations.Accessors
 
+
 @Accessors
 class UsarItem extends Accion implements ActionAgregable {
 		
@@ -23,6 +24,10 @@ class UsarItem extends Accion implements ActionAgregable {
 	def setItem(String item){
 		this.item = item
 		setNombre("Usar " +item)
+	}
+	
+	override getItem(){
+		null
 	}
 	
 	override agregarAccion(Accion acc) {
