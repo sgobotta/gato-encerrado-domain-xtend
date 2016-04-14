@@ -7,10 +7,6 @@ class AgarrarItem extends Accion {
 
 	String nombreItem
 	
-	new(String unItem) {
-		this.setNombreItem(unItem)			
-	}
-		
 	new() {
 	    
 	}

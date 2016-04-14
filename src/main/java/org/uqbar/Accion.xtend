@@ -12,10 +12,6 @@ abstract class Accion {
 	new(){
 		// Agregado para cumplir con Java Bean
 	}
-	
-	new(String unNombre) {
-		this.nombre = unNombre
-	}
 
 	def abstract void realizarAccion(Habitacion unaHabitacion, Jugador unJugador)
 	

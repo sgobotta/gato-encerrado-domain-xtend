@@ -6,11 +6,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 class IrAHabitacion extends Accion {
 	
 	Habitacion habitacion
-	
-	new(String unNombre) {
-		super(unNombre)
-	}
-	
+
 	new() {
 
 	}

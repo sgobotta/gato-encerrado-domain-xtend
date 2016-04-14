@@ -20,24 +20,12 @@ class Laberinto {
 	}
 	
 	def agregarHabitacion(Habitacion unaHabitacion) {
-//		if((unaHabitacion.isFirst && first == null) || 
-//			(unaHabitacion.isLast && last == null) || 
-//			(!unaHabitacion.isFirst && !unaHabitacion.isLast)){
 		habitaciones.add(unaHabitacion)
-//		}
 	}
 	
 	def eliminarHabitacion(Habitacion unaHabitacion) {
 		habitaciones.remove(unaHabitacion)
 	}
-	/* 
-	def marcarHabitacionComoInicial(Habitacion unaHabitacion){
-		unaHabitacion.first = true
-	}
-	def marcarHabitacionComoFinal(Habitacion unaHabitacion){
-		unaHabitacion.last = true
-	}
-	*/
 	
 	def List<String> todosLosItems(){
 		var list = new ArrayList<String>()

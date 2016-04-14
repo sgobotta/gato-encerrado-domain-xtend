@@ -39,12 +39,4 @@ class Habitacion implements ActionAgregable{
 		list
 	}
 	
-//	def void setFirst(boolean bool){
-//
-//	}
-//	
-//	def void setLast(boolean bool){
-//
-//	
-//	} 
 }

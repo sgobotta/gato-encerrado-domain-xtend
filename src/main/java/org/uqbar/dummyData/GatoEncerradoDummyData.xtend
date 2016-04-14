@@ -20,28 +20,30 @@ class GatoEncerradoDummyData {
 			laberintos.get(0).agregarHabitacion(crearHabitacion("Pasillo", false, false))
 			laberintos.get(0).agregarHabitacion(crearHabitacion("Salida", false, true))
 			
-			laberintos.get(0).habitaciones.get(0).agregarAccion(crearAccionIrAHabitacionItem("Ir a habitación - Pasillo"))
-			laberintos.get(0).habitaciones.get(0).agregarAccion(crearAccionAgarrarItem("Agarrar comida", "Comida"))
+			laberintos.get(0).habitaciones.get(0).agregarAccion(crearAccionIrAHabitacion(laberintos.get(0).habitaciones.get(1)))
+			laberintos.get(0).habitaciones.get(0).agregarAccion(crearAccionAgarrarItem("Comida"))
 			
-			laberintos.get(0).habitaciones.get(1).agregarAccion(crearAccionIrAHabitacionItem("Ir a habitación - Salida"))
-			laberintos.get(0).habitaciones.get(1).agregarAccion(crearAccionAgarrarItem("Agarrar herramienta", "Herramienta"))
-			laberintos.get(0).habitaciones.get(1).agregarAccion(crearAccionUsarItem("Usa herramienta pasa a Salida"))
+			laberintos.get(0).habitaciones.get(1).agregarAccion(crearAccionAgarrarItem("Herramienta"))
+			laberintos.get(0).habitaciones.get(1).agregarAccion(crearAccionUsarItem("Herramienta", 
+				crearAccionIrAHabitacion(laberintos.get(0).habitaciones.get(2))
+			))
 			
-			laberintos.get(0).habitaciones.get(2).agregarAccion(crearAccionAgarrarItem("Agarrar llave", "Llave"))
+			laberintos.get(0).habitaciones.get(2).agregarAccion(crearAccionAgarrarItem("Llave"))
 			
 			agregarLaberinto(crearLaberintoDummy("Bosque Oscuro"))
 			laberintos.get(1).agregarHabitacion(crearHabitacion("Area arbolada", true, false))
 			laberintos.get(1).agregarHabitacion(crearHabitacion("Puente", false, false))
-			laberintos.get(1).agregarHabitacion(crearHabitacion("Cascada", true, false))
+			laberintos.get(1).agregarHabitacion(crearHabitacion("Cascada", false, true))
 			
-			laberintos.get(1).habitaciones.get(0).agregarAccion(crearAccionIrAHabitacionItem("Ir a habitación - Puente"))
-			laberintos.get(1).habitaciones.get(0).agregarAccion(crearAccionAgarrarItem("Agarrar soga", "Soga"))
+			laberintos.get(1).habitaciones.get(0).agregarAccion(crearAccionIrAHabitacion(laberintos.get(1).habitaciones.get(1)))
+			laberintos.get(1).habitaciones.get(0).agregarAccion(crearAccionAgarrarItem("Soga"))
 			
-			laberintos.get(1).habitaciones.get(1).agregarAccion(crearAccionIrAHabitacionItem("Ir a habitación - Cascada"))
-			laberintos.get(1).habitaciones.get(1).agregarAccion(crearAccionAgarrarItem("Agarrar mapa", "Mapa"))
-			laberintos.get(1).habitaciones.get(1).agregarAccion(crearAccionUsarItem("Usa soga pasa a Cascada"))
+			laberintos.get(1).habitaciones.get(1).agregarAccion(crearAccionAgarrarItem("Mapa"))
+			laberintos.get(1).habitaciones.get(1).agregarAccion(crearAccionUsarItem("Soga", 
+				crearAccionIrAHabitacion(laberintos.get(1).habitaciones.get(2))
+			))
 			
-			laberintos.get(1).habitaciones.get(2).agregarAccion(crearAccionAgarrarItem("Agarrar anillo", "Anillo"))
+			laberintos.get(1).habitaciones.get(2).agregarAccion(crearAccionAgarrarItem("Anillo"))
 			
 		]
 		
@@ -62,15 +64,22 @@ class GatoEncerradoDummyData {
 		]
 	}
 	
-	def Accion crearAccionAgarrarItem(String nombreDeAccion, String nombreItem) {
-		new AgarrarItem(nombreItem)
+	def Accion crearAccionAgarrarItem(String itemName) {
+		new AgarrarItem() => [
+			nombreItem = itemName
+		]
 	}
 	
-	def crearAccionIrAHabitacionItem(String nombreDeAccion) {
-		new IrAHabitacion(nombreDeAccion)
+	def crearAccionIrAHabitacion(Habitacion hab) {
+		new IrAHabitacion() => [
+			habitacion = hab
+		]
 	}
 	
-	def crearAccionUsarItem(String nombreDeAccion) {
-		new UsarItem(nombreDeAccion)
+	def crearAccionUsarItem(String itemm, Accion acc) {
+		new UsarItem() => [
+			item = itemm
+			accion = acc
+		]
 	}
 }
