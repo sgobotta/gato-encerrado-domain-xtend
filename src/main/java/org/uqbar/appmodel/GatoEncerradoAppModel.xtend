@@ -18,6 +18,10 @@ class GatoEncerradoAppModel {
 	Habitacion habitacionSeleccionada
 	Accion accionSeleccionada
 	
+	new(Usuario usuario){
+		this.usuario = usuario
+	}
+	
 	new(){
 		
 	}
