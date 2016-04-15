@@ -5,6 +5,7 @@ import org.uqbar.commons.utils.Observable
 import org.uqbar.LoginService
 import org.uqbar.exceptions.MyLoginException
 import org.uqbar.Account
+import org.uqbar.Usuario
 
 @Observable
 @Accessors
@@ -21,6 +22,7 @@ class LoginAppModel {
 	
 	//validar el nombre y contrasena ingresados
 	def logearUsuario(){
+		//solo lo uso para validar esa cuenta
 		var dummyAcc = new Account()
 		dummyAcc.nombre = nombreDeCuentaALogear
 		dummyAcc.password = contraseñaDeCuentaALogear
@@ -32,5 +34,11 @@ class LoginAppModel {
 		else{
 			throw new MyLoginException("Debe ingresar algun campo")
 		}
-	}	
+	}
+	
+	def getUsuario() {
+		cuentaSeleccionada.usuario = new Usuario(cuentaSeleccionada.nombre)
+		return cuentaSeleccionada.usuario
+	}
+	
 }
