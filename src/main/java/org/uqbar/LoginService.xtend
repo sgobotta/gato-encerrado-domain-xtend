@@ -17,7 +17,7 @@ class LoginService {
 		accounts = new ArrayList<Account>()
 	}
 	
-	def Account login(String nombre, String password){
+	def Account login(String nombre, String password) throws MyLoginException{
 		
 		if(this.existeCuentaConNombre(nombre)){
 			var cuenta = this.getCuenta(nombre)
@@ -33,7 +33,7 @@ class LoginService {
 		}
 	}
 
-	def void registrarCuenta(Account cuenta){
+	def void registrarCuenta(Account cuenta) throws MyRegistracionException{
 		
 		var existeCuenta = this.existeCuentaConNombre(cuenta.nombre)
 		
@@ -46,7 +46,7 @@ class LoginService {
 
 	}
 	
-	def void eliminarCuenta(Account cuenta){
+	def void eliminarCuenta(Account cuenta) throws MyEliminandoUsuarioException{
 		var existeCuenta = this.existeCuentaConNombre(cuenta.nombre)
 		if(existeCuenta){
 			accounts.remove(cuenta)
