@@ -17,7 +17,7 @@ class LoginService {
 		accounts = new ArrayList<Account>()
 	}
 	
-	def login(String nombre, String password){
+	def Account login(String nombre, String password){
 		
 		if(this.existeCuentaConNombre(nombre)){
 			var cuenta = this.getCuenta(nombre)
@@ -34,7 +34,9 @@ class LoginService {
 	}
 
 	def void registrarCuenta(Account cuenta){
+		
 		var existeCuenta = this.existeCuentaConNombre(cuenta.nombre)
+		
 		if(!existeCuenta){
 			accounts.add(cuenta)			
 		}
@@ -54,15 +56,16 @@ class LoginService {
 		}
 	}
 	
-	def getCuenta(String nombre) {
+	def Account getCuenta(String nombre) {
 		for(Account account: accounts){
 			if(account.tieneNombre(nombre)){
 				return account
 			}
 		}
+		return null
 	}
 	
-	def existeCuentaConNombre(String nombre){
+	def boolean existeCuentaConNombre(String nombre){
 		return accounts.exists[Account cuenta | cuenta.tieneNombre(nombre)]
 	}
 	

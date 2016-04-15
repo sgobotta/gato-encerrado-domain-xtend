@@ -32,6 +32,6 @@ class Account {
 		return password.equals(pass)
 	}
 	def tieneNombre(String nombre){
-		return nombre.equals(nombre)
+		return this.nombre.equals(nombre)
 	}
 }

@@ -5,6 +5,7 @@ import org.junit.Test
 import org.uqbar.exceptions.MyLoginException
 import org.uqbar.exceptions.MyRegistracionException
 import org.junit.Assert
+import org.uqbar.exceptions.MyEliminandoUsuarioException
 
 class TestLoginService {
 	
@@ -14,14 +15,16 @@ class TestLoginService {
 	
 	LoginService sudo
 	
+	boolean cepilloEstaRegistrado
+	
 	@Before
 	def void setUp(){
-		pepillo = new Account=>[
+		pepillo = new Account =>[
 			nombre = 'pepillo'
 			password = '1234'
 		]
 		
-		cepillo = new Account=>[
+		cepillo = new Account =>[
 			nombre = 'cepillo'
 			password = '1234'
  		]
@@ -30,11 +33,16 @@ class TestLoginService {
 		sudo = new LoginService()
 		
 		sudo.registrarCuenta(pepillo)
+		
+		cepilloEstaRegistrado = sudo.existeCuentaConNombre(cepillo.nombre)
+		
 	}
 	
 	@Test(expected = MyLoginException)
 	def void testLogearUnUsuarioQueNoExisteArrojaUnaExcepcion(){
+		
 		sudo.login(cepillo.nombre, cepillo.password)
+		
 		Assert.assertEquals(false, sudo.existeCuentaConNombre(cepillo.nombre))
 	}
 	
@@ -46,6 +54,7 @@ class TestLoginService {
 	
 	@Test(expected = MyRegistracionException)
 	def void testRegistrarUnUsuarioConUnNombreQueYaExisteArrojaUnaExcepcion(){
+		
 		sudo.registrarCuenta(pepillo)
 		Assert.assertEquals(true, sudo.existeCuentaConNombre(pepillo.nombre))
 	}
@@ -53,12 +62,29 @@ class TestLoginService {
 	@Test
 	def void testRegistrarUnUsuarioConUnNombreQueNoExisteLoAgregaAlSistema(){
 		
-		var existia = sudo.existeCuentaConNombre(cepillo.nombre)
 		
 		sudo.registrarCuenta(cepillo)
 		
-		Assert.assertEquals(false, existia)
-		Assert.assertEquals(true, sudo.existeCuentaConNombre(cepillo.nombre))
+		var cepilloLuegoDeRegistrarlo = sudo.existeCuentaConNombre(cepillo.nombre)
+		
+		Assert.assertEquals(false, cepilloEstaRegistrado)
+		Assert.assertEquals(true, cepilloLuegoDeRegistrarlo)
+	}
+	
+	@Test(expected = MyEliminandoUsuarioException)
+	def void testEliminarUnaCuentaQueNoExisteArrojaUnaExcepcion(){
+		
+		sudo.eliminarCuenta(cepillo)
+		Assert.assertEquals(cepilloEstaRegistrado, false)
+	}
+	
+	@Test
+	def void testEliminarUnaCuentaQueExistaLoSacaDelSistema(){
+		
+		sudo.eliminarCuenta(pepillo)
+		var pepilloLuegoDeEliminarlo = sudo.existeCuentaConNombre(pepillo.nombre)
+		
+		Assert.assertEquals(pepilloLuegoDeEliminarlo, false)
 	}
 	
 }
