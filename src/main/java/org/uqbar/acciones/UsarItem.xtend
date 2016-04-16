@@ -1,7 +1,8 @@
-package org.uqbar
+package org.uqbar.acciones
 
 import org.eclipse.xtend.lib.annotations.Accessors
-
+import org.uqbar.Habitacion
+import org.uqbar.Jugador
 
 @Accessors
 class UsarItem extends Accion implements ActionAgregable {
@@ -36,6 +37,6 @@ class UsarItem extends Accion implements ActionAgregable {
 	
 	def setAccion(Accion acc){
 		this.accion = acc
-		setNombre(getNombre+ " para " + acc.getNombre)
+		setNombre(getNombre + " para " + acc.getNombre)
 	}
 }

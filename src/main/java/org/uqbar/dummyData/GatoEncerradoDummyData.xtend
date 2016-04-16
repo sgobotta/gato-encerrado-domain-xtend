@@ -3,10 +3,10 @@ package org.uqbar.dummyData
 import org.uqbar.Laberinto
 import org.uqbar.Habitacion
 import org.uqbar.Usuario
-import org.uqbar.Accion
-import org.uqbar.AgarrarItem
-import org.uqbar.IrAHabitacion
-import org.uqbar.UsarItem
+import org.uqbar.acciones.Accion
+import org.uqbar.acciones.AgarrarItem
+import org.uqbar.acciones.IrAHabitacion
+import org.uqbar.acciones.UsarItem
 
 class GatoEncerradoDummyData {
 	

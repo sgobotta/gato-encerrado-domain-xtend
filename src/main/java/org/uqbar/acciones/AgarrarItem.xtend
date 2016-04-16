@@ -1,6 +1,8 @@
-package org.uqbar
+package org.uqbar.acciones
 
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.Habitacion
+import org.uqbar.Jugador
 
 @Accessors
 class AgarrarItem extends Accion {

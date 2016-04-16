@@ -1,4 +1,4 @@
-package org.uqbar
+package org.uqbar.acciones
 
 interface ActionAgregable {
 	

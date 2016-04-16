@@ -4,7 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.Laberinto
 import org.uqbar.Habitacion
-import org.uqbar.Accion
+import org.uqbar.acciones.Accion
 import org.uqbar.Usuario
 import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.model.UserException

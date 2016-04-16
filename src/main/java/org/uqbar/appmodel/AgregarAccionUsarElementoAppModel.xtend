@@ -4,8 +4,8 @@ import org.uqbar.Habitacion
 import org.uqbar.Laberinto
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
-import org.uqbar.ActionAgregable
-import org.uqbar.UsarItem
+import org.uqbar.acciones.ActionAgregable
+import org.uqbar.acciones.UsarItem
 
 @Accessors
 @Observable
