@@ -5,6 +5,8 @@ import org.uqbar.commons.utils.Observable
 import org.uqbar.Laberinto
 import org.uqbar.Habitacion
 import org.uqbar.acciones.ActionAgregable
+import org.uqbar.commons.model.UserException
+import org.uqbar.acciones.Accion
 
 @Observable
 @Accessors
@@ -23,4 +25,12 @@ class AgregarAccionAgarrarElementoAppModel {
 	def isItemNotNull() {
         return nombreItem != ""
 	}
+    
+    def validarInput(Accion accion) {
+        if(nombreItem == null) {
+            throw new UserException("Debe ingresar un nombre")
+        }
+        objetoParaAgregarleAccion.agregarAccion(accion)
+    }
+    
 }
