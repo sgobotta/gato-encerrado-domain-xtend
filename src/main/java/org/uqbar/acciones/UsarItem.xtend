@@ -28,7 +28,7 @@ class UsarItem extends Accion implements ActionAgregable {
 	}
 	
 	override getItem(){
-		null
+		accion.getItem()
 	}
 	
 	override agregarAccion(Accion acc) {
