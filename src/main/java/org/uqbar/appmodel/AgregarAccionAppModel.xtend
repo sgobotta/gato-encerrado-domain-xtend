@@ -18,4 +18,10 @@ class AgregarAccionAppModel {
 		
 	}
 	
+	new(Laberinto laberinto, Habitacion habitacion, Habitacion habitacionAAgregarle) {
+            laberintoSeleccionado = laberinto
+            habitacionSeleccionada = habitacion
+            objetoParaAgregarleAccion = habitacionAAgregarle
+	}
+	
 }

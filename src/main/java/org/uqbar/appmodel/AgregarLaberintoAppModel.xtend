@@ -14,4 +14,9 @@ class AgregarLaberintoAppModel {
 	new() {
 		
 	}
+	
+	new(List<Laberinto> laberintos) {
+		this.laberintos = laberintos
+	}
+	
 }

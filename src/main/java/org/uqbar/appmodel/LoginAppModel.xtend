@@ -3,7 +3,6 @@ package org.uqbar.appmodel
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.LoginService
-import org.uqbar.exceptions.MyLoginException
 import org.uqbar.Account
 import org.uqbar.Usuario
 
@@ -27,13 +26,10 @@ class LoginAppModel {
 		dummyAcc.nombre = nombreDeCuentaALogear
 		dummyAcc.password = contraseñaDeCuentaALogear
 		
-		if(dummyAcc.estaValidado()){
-			//intenta logear al usuario validado
-			cuentaSeleccionada = servicioDeLogeo.login(nombreDeCuentaALogear, contraseñaDeCuentaALogear)
-		}
-		else{
-			throw new MyLoginException("Debe ingresar algun campo")
-		}
+		dummyAcc.estaValidado()
+		//intenta logear al usuario validado
+		cuentaSeleccionada = servicioDeLogeo.login(nombreDeCuentaALogear, contraseñaDeCuentaALogear)
+
 	}
 	
 	def getUsuario() {

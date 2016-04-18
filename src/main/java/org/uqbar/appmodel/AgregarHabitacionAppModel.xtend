@@ -12,5 +12,10 @@ class AgregarHabitacionAppModel {
 	
 	new() {
 		
-	}	
+	}
+	
+	new(Laberinto laberinto) {
+        this.laberintoSeleccionado = laberinto
+	}
+	
 }

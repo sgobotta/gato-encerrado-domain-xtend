@@ -123,4 +123,17 @@ class GatoEncerradoAppModel {
     		false
     	}
     }
+	
+	def eliminarLaberintoDeUsuario() {
+        this.usuario.eliminarLaberinto(this.laberintoSeleccionado)
+	}
+	
+	def eliminarHabitacion() {
+        this.usuario.eliminarHabitacion(this.habitacionSeleccionada, this.laberintoSeleccionado)
+	}
+	
+	def quitarAccion() {
+        this.habitacionSeleccionada.eliminarAccion(this.accionSeleccionada)
+	}
+	
 }

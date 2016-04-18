@@ -10,26 +10,14 @@ import org.uqbar.Account
 class CrearCuentaAppModel {
 		LoginService servicioDeLogeo
 		Account cuentaACrear
-		String nombreCuentaACrear
-		String passwordCuentaACrear
 		
 	new(LoginService servicio){
 			servicioDeLogeo = servicio
 			cuentaACrear = new Account()
 		}
-	
-	def armarCuenta() {
-		cuentaACrear.nombre = nombreCuentaACrear
-		cuentaACrear.password = passwordCuentaACrear
-	}
-	
-	def validarUsuario() {
-		cuentaACrear.estaValidado()
-	}
-	
+			
 	def registrarCuenta(){
-		this.armarCuenta()
-		this.validarUsuario()
+		cuentaACrear.estaValidado()
 		servicioDeLogeo.registrarCuenta(cuentaACrear)
 	}
 	
