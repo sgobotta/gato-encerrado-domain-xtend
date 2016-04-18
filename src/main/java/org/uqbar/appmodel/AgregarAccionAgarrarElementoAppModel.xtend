@@ -20,12 +20,7 @@ class AgregarAccionAgarrarElementoAppModel {
 	new(){
 		
 	}
-	
-	
-	def isItemNotNull() {
-        return nombreItem != ""
-	}
-    
+		
     def validarInput(Accion accion) {
         if(nombreItem == null) {
             throw new UserException("Debe ingresar un nombre")

@@ -30,7 +30,6 @@ class AgregarAccionUsarElementoAppModel {
         if(this.accionARetornar.nombre == null) {
             throw new UserException("Debe seleccionar una acción")
         }
-         
         objetoParaAgregarleAccion.agregarAccion(accion)
     }
 	
