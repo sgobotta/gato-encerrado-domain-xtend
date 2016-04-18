@@ -5,6 +5,7 @@ import org.uqbar.commons.utils.Observable
 import org.uqbar.Laberinto
 import org.uqbar.Habitacion
 import org.uqbar.acciones.ActionAgregable
+import org.uqbar.acciones.IrAHabitacion
 
 @Observable
 @Accessors
@@ -16,6 +17,12 @@ class AgregarAccionAppModel {
 	
 	new(){
 		
+	}
+	
+	def agregarAccion(){
+	    var acc = new IrAHabitacion()
+	    acc.habitacion = habitacionSeleccionada
+	    objetoParaAgregarleAccion.agregarAccion(acc)
 	}
 	
 }

@@ -9,18 +9,24 @@ import org.uqbar.Habitacion
 @Observable
 @Accessors
 class AgregarHabitacionAppModel {
-	String nombreHabitacion
-	Laberinto laberintoSeleccionado
-	
-	new() {
-		
-	}
-    
-    def validarInput(Habitacion habitacion) {
-        if(this.nombreHabitacion == null) {
+    String nombreHabitacion
+    Laberinto laberintoSeleccionado
+
+    new() {
+    }
+
+    def validar() {
+        if (this.nombreHabitacion == null) {
             throw new UserException("Debe ingresar un nombre para la habitación")
         }
-        laberintoSeleccionado.agregarHabitacion(habitacion)
+
     }
-    
+
+    def agregarHabitacion() {
+        this.validar()
+        var hab = new Habitacion()
+        hab.nombreHabitacion = nombreHabitacion
+        laberintoSeleccionado.agregarHabitacion(hab)
+    }
+
 }

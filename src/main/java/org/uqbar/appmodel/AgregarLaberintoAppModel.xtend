@@ -16,11 +16,18 @@ class AgregarLaberintoAppModel {
 		
 	}
     
-    def validarInput(Laberinto habitacion) {
-        if(this.nombreLaberinto == null) {
+    def agregarLaberinto() {
+        
+        this.validar()
+        var lab = new Laberinto()
+        lab.nombreLaberinto = nombreLaberinto
+        laberintos.add(lab)
+    }
+    
+    def validar(){
+         if(this.nombreLaberinto == null) {
             throw new UserException("El laberinto debe tener un nombre")
-        }
-        laberintos.add(habitacion)
+        }        
     }
     
 }
