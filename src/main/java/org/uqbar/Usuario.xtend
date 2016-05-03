@@ -9,6 +9,7 @@ import org.uqbar.commons.utils.Observable
 @Accessors
 class Usuario {
 
+    Integer id
 	String nombre
 	String password
 	List<Laberinto> laberintos = new ArrayList<Laberinto>

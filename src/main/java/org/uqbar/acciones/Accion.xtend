@@ -9,6 +9,7 @@ import org.uqbar.Jugador
 @Observable
 abstract class Accion {
 	
+	Integer id
 	String nombre
 	
 	new(){

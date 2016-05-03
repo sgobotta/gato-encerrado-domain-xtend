@@ -13,7 +13,8 @@ class Laberinto {
 	List<Habitacion> habitaciones
 	Habitacion last
 	Habitacion first
-	
+	Integer idLaberinto
+	String imagePath
 	
 	new() {
 		this.habitaciones = new ArrayList<Habitacion>

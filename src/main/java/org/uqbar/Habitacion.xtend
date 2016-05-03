@@ -11,6 +11,8 @@ import org.uqbar.acciones.Accion
 @Observable
 class Habitacion implements ActionAgregable {
 
+    Integer id
+    String imagePath
 	String nombreHabitacion
 	boolean first
 	boolean last
