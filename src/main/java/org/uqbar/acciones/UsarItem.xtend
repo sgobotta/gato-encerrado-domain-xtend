@@ -2,7 +2,7 @@ package org.uqbar.acciones
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.Habitacion
-import org.uqbar.Jugador
+import org.uqbar.jugador.Jugador
 
 @Accessors
 class UsarItem extends Accion implements ActionAgregable {
@@ -16,9 +16,9 @@ class UsarItem extends Accion implements ActionAgregable {
 	
 	// Probablemente cambie cuando avancemos en los proximos tps (UI WEB sobre todo)
 	override realizarAccion(Habitacion unaHabitacion, Jugador unJugador) {
-		if(unJugador.tieneItem(item)){
+		if(unJugador.tieneItem(null)){
 		unaHabitacion.agregarAccion(accion)
-		unJugador.eliminarItem(item)
+		unJugador.eliminarItem(null)
 		}
 	}
 	
@@ -28,7 +28,7 @@ class UsarItem extends Accion implements ActionAgregable {
 	}
 	
 	override getItem(){
-		null
+		accion.getItem()
 	}
 	
 	override agregarAccion(Accion acc) {

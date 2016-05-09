@@ -21,19 +21,21 @@ class AgregarHabitacionAppModel {
 	new(Laberinto laberinto) {
         this.laberintoSeleccionado = laberinto
 	}
-    
-    def validarInput(Habitacion habitacion) {
-        if(this.nombreHabitacion == null) {
+ 
+	
+    def validar() {
+        if (this.nombreHabitacion == null) {
             throw new UserException("Debe ingresar un nombre para la habitación")
         }
 
     }
 	
-	def agregarHabitacion() {
-		var nuevaHabitacion = new Habitacion()
-		nuevaHabitacion.nombreHabitacion =  this.nombreHabitacion
-		this.validarInput(nuevaHabitacion)
-        laberintoSeleccionado.agregarHabitacion(nuevaHabitacion)		
-	}
-	
+
+    def agregarHabitacion() {
+        this.validar()
+        var hab = new Habitacion()
+        hab.nombreHabitacion = nombreHabitacion
+        laberintoSeleccionado.agregarHabitacion(hab)
     }
+
+}

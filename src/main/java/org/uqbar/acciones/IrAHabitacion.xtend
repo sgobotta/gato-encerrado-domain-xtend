@@ -2,7 +2,7 @@ package org.uqbar.acciones
 
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.Habitacion
-import org.uqbar.Jugador
+import org.uqbar.jugador.Jugador
 
 @Accessors
 class IrAHabitacion extends Accion {

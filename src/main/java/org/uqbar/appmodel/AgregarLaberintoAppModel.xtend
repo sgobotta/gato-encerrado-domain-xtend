@@ -23,20 +23,18 @@ class AgregarLaberintoAppModel {
 	}
 	
     
-    def validarInput(Laberinto habitacion) {
-        if(this.nombreLaberinto == null) {
-            throw new UserException("El laberinto debe tener un nombre")
-        }
-    }
-	
-	def agregarLaberinto() {
-		
+    def agregarLaberinto() {
+        
+        this.validar()
 		var nuevoLaberinto = new Laberinto()
 		nuevoLaberinto.setNombreLaberinto(nombreLaberinto)
 		
-		this.validarInput(nuevoLaberinto)
 		usuarioSeleccionado.agregarLaberinto(nuevoLaberinto)
-		
-	}
+    }
     
+    def validar(){
+         if(this.nombreLaberinto == null) {
+            throw new UserException("El laberinto debe tener un nombre")
+    	}
+	}    
 }
