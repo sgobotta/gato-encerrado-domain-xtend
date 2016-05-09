@@ -19,6 +19,7 @@ class Jugador {
 		habitacionActual = unaHabitacion
 	}
 	
+	// No mas de 15!
 	def void agarrarItem(Elemento item) {
 		inventario.add(item)
 	}
