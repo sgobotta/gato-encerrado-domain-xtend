@@ -10,7 +10,6 @@ import org.uqbar.acciones.ActionAgregable
 @Accessors
 class AgregarAccionAppModel {
 	
-	Laberinto laberintoSeleccionado
 	Habitacion habitacionSeleccionada
 	ActionAgregable objetoParaAgregarleAccion
 	
@@ -18,8 +17,7 @@ class AgregarAccionAppModel {
 		
 	}
 	
-	new(Laberinto laberinto, Habitacion habitacion, Habitacion habitacionAAgregarle) {
-            laberintoSeleccionado = laberinto
+	new(Habitacion habitacion, Habitacion habitacionAAgregarle) {
             habitacionSeleccionada = habitacion
             objetoParaAgregarleAccion = habitacionAAgregarle
 	}

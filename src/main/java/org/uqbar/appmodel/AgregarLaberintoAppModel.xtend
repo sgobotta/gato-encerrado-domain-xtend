@@ -5,19 +5,21 @@ import org.uqbar.commons.utils.Observable
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
 import org.uqbar.commons.model.UserException
+import org.uqbar.Usuario
 
 @Observable
 @Accessors
 class AgregarLaberintoAppModel {
 	String nombreLaberinto
-	List<Laberinto> laberintos
+	
+	Usuario usuarioSeleccionado
 	
 	new() {
 		
 	}
-	
-	new(List<Laberinto> laberintos) {
-		this.laberintos = laberintos
+
+	new(List<Laberinto> laberintos, Usuario usuarioSeleccionado){
+		this.usuarioSeleccionado = usuarioSeleccionado
 	}
 	
     
@@ -25,7 +27,16 @@ class AgregarLaberintoAppModel {
         if(this.nombreLaberinto == null) {
             throw new UserException("El laberinto debe tener un nombre")
         }
-        laberintos.add(habitacion)
     }
+	
+	def agregarLaberinto() {
+		
+		var nuevoLaberinto = new Laberinto()
+		nuevoLaberinto.setNombreLaberinto(nombreLaberinto)
+		
+		this.validarInput(nuevoLaberinto)
+		usuarioSeleccionado.agregarLaberinto(nuevoLaberinto)
+		
+	}
     
 }

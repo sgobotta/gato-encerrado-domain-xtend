@@ -12,7 +12,6 @@ import org.uqbar.acciones.Accion
 @Accessors
 class AgregarAccionAgarrarElementoAppModel {
 	
-	Laberinto laberintoSeleccionado
 	Habitacion habitacionSeleccionada
 	String nombreItem
 	ActionAgregable objetoParaAgregarleAccion

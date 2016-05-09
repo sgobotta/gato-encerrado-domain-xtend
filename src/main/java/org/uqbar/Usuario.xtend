@@ -4,6 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
 import java.util.ArrayList
 import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.ObservableUtils
 
 @Observable
 @Accessors
@@ -37,6 +38,7 @@ class Usuario {
 	
 	def void agregarLaberinto(Laberinto laberinto) {
 		laberintos.add(laberinto)
+		ObservableUtils.firePropertyChanged(this, "laberintos", this.laberintos)
 	}
 	
 	// Métodos de Habitación

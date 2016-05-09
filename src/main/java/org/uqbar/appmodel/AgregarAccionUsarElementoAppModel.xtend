@@ -13,7 +13,6 @@ import org.uqbar.commons.model.UserException
 @Observable
 class AgregarAccionUsarElementoAppModel {
 	
-	Laberinto laberintoSeleccionado
     Habitacion habitacionSeleccionada
 	String itemSeleccionado
 	ActionAgregable objetoParaAgregarleAccion
