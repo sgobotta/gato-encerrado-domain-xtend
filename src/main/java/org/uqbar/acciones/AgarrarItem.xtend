@@ -13,11 +13,11 @@ class AgarrarItem extends Accion {
 	new() {
 	    
 	}
-	
-	// RealizarAccion probablemente cambie en los proximos tps (UI WEB sobre todo)
-	override realizarAccion(Habitacion unaHabitacion, Jugador unJugador) {
-		 unJugador.agarrarItem(null)
-		 unaHabitacion.eliminarAccion(this)
+	// Hay que agregar lo que devuelve si hacemos que devuelva una RespuestaDeRealizarAccion 
+	//(Tendríamos que armar la dependency del xtrest project)
+	override realizarAccion(Habitacion habitacion, Jugador jugador) {
+		 jugador.agarrarItem(item)
+		 habitacion.eliminarAccion(this)
 	}
 	
 	override getItemName(){

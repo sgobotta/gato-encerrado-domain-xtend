@@ -15,11 +15,13 @@ class UsarItem extends Accion implements ActionAgregable {
 		
 	}	
 	
-	// Probablemente cambie cuando avancemos en los proximos tps (UI WEB sobre todo)
-	override realizarAccion(Habitacion unaHabitacion, Jugador unJugador) {
-		if(unJugador.tieneItem(null)){
-		unaHabitacion.agregarAccion(accion)
-		unJugador.eliminarItem(null)
+	// Hay que agregar lo que devuelve si hacemos que devuelva una RespuestaDeRealizarAccion 
+	//(Tendríamos que armar la dependency del xtrest project)
+	override realizarAccion(Habitacion habitacion, Jugador jugador) {
+		if(jugador.tieneItem(item)){
+		habitacion.agregarAccion(accion)
+		jugador.eliminarItem(item)
+		habitacion.eliminarAccion(this)
 		}
 	}
 	
