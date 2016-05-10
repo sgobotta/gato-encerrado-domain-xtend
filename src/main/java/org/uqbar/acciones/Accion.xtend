@@ -4,6 +4,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.Habitacion
 import org.uqbar.jugador.Jugador
+import org.uqbar.jugador.Elemento
 
 @Accessors
 @Observable
@@ -18,7 +19,11 @@ abstract class Accion {
 
 	def abstract void realizarAccion(Habitacion unaHabitacion, Jugador unJugador)
 	
-	def String getItem(){
+	def Elemento getItem(){
+		null
+	}
+	
+	def String getItemName(){
 		null
 	}
 	

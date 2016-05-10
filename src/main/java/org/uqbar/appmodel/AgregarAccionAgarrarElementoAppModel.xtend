@@ -7,6 +7,7 @@ import org.uqbar.Habitacion
 import org.uqbar.acciones.ActionAgregable
 import org.uqbar.commons.model.UserException
 import org.uqbar.acciones.AgarrarItem
+import org.uqbar.jugador.Elemento
 
 @Observable
 @Accessors
@@ -31,7 +32,9 @@ class AgregarAccionAgarrarElementoAppModel {
     def agregarAccion(){
         this.validar()
         var acc = new AgarrarItem()
-        acc.nombreItem = nombreItem
+        acc.item = new Elemento() => [
+        	nombre = nombreItem
+        ]
         objetoParaAgregarleAccion.agregarAccion(acc)
     }
     

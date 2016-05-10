@@ -3,11 +3,12 @@ package org.uqbar.acciones
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.Habitacion
 import org.uqbar.jugador.Jugador
+import org.uqbar.jugador.Elemento
 
 @Accessors
 class AgarrarItem extends Accion {
 
-	String nombreItem
+	Elemento item
 	
 	new() {
 	    
@@ -19,12 +20,12 @@ class AgarrarItem extends Accion {
 		 unaHabitacion.eliminarAccion(this)
 	}
 	
-	override getItem(){
-		nombreItem
+	override getItemName(){
+		item.nombre
 	}
 	
-	def setNombreItem(String itemName){
-		this.nombreItem = itemName
-		setNombre("Agarrar " +itemName)
+	def setItem(Elemento item){
+		this.item = item
+		setNombre("Agarrar " +item.nombre)
 	}
 }

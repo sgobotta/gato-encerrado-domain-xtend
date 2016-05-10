@@ -6,6 +6,7 @@ import java.util.ArrayList
 import org.uqbar.commons.utils.Observable
 import org.uqbar.acciones.ActionAgregable
 import org.uqbar.acciones.Accion
+import org.uqbar.jugador.Elemento
 
 @Accessors
 @Observable
@@ -17,7 +18,7 @@ class Habitacion implements ActionAgregable {
 	boolean first
 	boolean last
 	List<Accion> acciones
-	List<String> items
+	List<Elemento> items
 	
 	new() {
 		this.acciones = new ArrayList<Accion>
@@ -33,11 +34,11 @@ class Habitacion implements ActionAgregable {
  		this.acciones.remove(unaAccion)
 	}
 	
-	def getTodosLosItems() {
+	def getTodosLosItemNames() {
 		var list = new ArrayList<String>()
 		for(acc : acciones){
 		    if(acc.getItem != null){
-            list.add(acc.item)
+            list.add(acc.getItemName())
             }
         }
 		list
