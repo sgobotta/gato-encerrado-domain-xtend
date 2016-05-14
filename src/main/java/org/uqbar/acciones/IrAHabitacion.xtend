@@ -13,14 +13,15 @@ class IrAHabitacion extends Accion {
 
 	}
 	
-	// realizarAccion vamos a tener que cambiarlo cuando hagamos el UI web.
-	override realizarAccion(Habitacion unaHabitacion, Jugador unJugador) {
-		unJugador.moverAHabitacion(unaHabitacion)
+	// Hay que agregar lo que devuelve si hacemos que devuelva una RespuestaDeRealizarAccion 
+	//(Tendríamos que armar la dependency del xtrest project)
+	override realizarAccion(Habitacion habitacion, Jugador jugador) {
+		jugador.moverAHabitacion(this.habitacion)
 	}
 	
 	def setHabitacion(Habitacion hab){
-		habitacion = hab
-		setNombre("Ir a la habitacion "+habitacion.nombreHabitacion)
+		this.habitacion = hab
+		setNombre("Ir a la habitacion "+ this.habitacion.nombreHabitacion)
 	}
 
 }

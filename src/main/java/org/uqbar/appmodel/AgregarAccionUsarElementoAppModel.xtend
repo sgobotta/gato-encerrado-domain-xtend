@@ -7,6 +7,7 @@ import org.uqbar.commons.utils.Observable
 import org.uqbar.acciones.ActionAgregable
 import org.uqbar.acciones.UsarItem
 import org.uqbar.commons.model.UserException
+import org.uqbar.jugador.Elemento
 
 @Accessors
 @Observable
@@ -39,5 +40,11 @@ class AgregarAccionUsarElementoAppModel {
             throw new UserException("Debe seleccionar una acción")
         }
     }
+	
+	def agregarItemAAccionARetornar() {
+		accionARetornar.item = new Elemento() => [
+			nombre = itemSeleccionado
+		]
+	}
 
 }

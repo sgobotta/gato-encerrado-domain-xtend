@@ -7,6 +7,7 @@ import org.uqbar.acciones.Accion
 import org.uqbar.acciones.AgarrarItem
 import org.uqbar.acciones.IrAHabitacion
 import org.uqbar.acciones.UsarItem
+import org.uqbar.jugador.Elemento
 
 class GatoEncerradoDummyData {
 	
@@ -66,7 +67,9 @@ class GatoEncerradoDummyData {
 	
 	def Accion crearAccionAgarrarItem(String itemName) {
 		new AgarrarItem() => [
-			nombreItem = itemName
+			item = new Elemento() => [
+						nombre = itemName 
+					]
 		]
 	}
 	
@@ -76,9 +79,11 @@ class GatoEncerradoDummyData {
 		]
 	}
 	
-	def crearAccionUsarItem(String itemm, Accion acc) {
+	def crearAccionUsarItem(String itemName, Accion acc) {
 		new UsarItem() => [
-			item = itemm
+			item = new Elemento() => [
+					nombre = itemName
+				]
 			accion = acc
 		]
 	}
