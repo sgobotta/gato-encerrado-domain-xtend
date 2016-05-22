@@ -23,7 +23,7 @@ class LoginAppModel {
 	def logearUsuario(){
 		//solo lo uso para validar esa cuenta
 		var dummyAcc = new Account()
-		dummyAcc.nombre = nombreDeCuentaALogear
+		dummyAcc.username = nombreDeCuentaALogear
 		dummyAcc.password = contraseñaDeCuentaALogear
 		
 		dummyAcc.estaValidado()
@@ -33,7 +33,7 @@ class LoginAppModel {
 	}
 	
 	def getUsuario() {
-		cuentaSeleccionada.usuario = new Usuario(cuentaSeleccionada.nombre)
+		cuentaSeleccionada.usuario = new Usuario(cuentaSeleccionada.username)
 		return cuentaSeleccionada.usuario
 	}
 	

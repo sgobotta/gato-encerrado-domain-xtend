@@ -7,7 +7,7 @@ import org.uqbar.commons.utils.Observable
 @Observable
 @Accessors
 class Account {
-	String nombre
+	String username
 	String password
 	Usuario usuario
 	
@@ -17,7 +17,7 @@ class Account {
 
 	//Metodos de Login
 	def estaValidado(){
-		if(!this.ingresoCampo(nombre)){
+		if(!this.ingresoCampo(username)){
 			throw new UserException("Debe ingresar nombre")
 			}
 		if(!this.ingresoCampo(password)){
@@ -32,6 +32,6 @@ class Account {
 		return password.equals(pass)
 	}
 	def tieneNombre(String nombre){
-		return this.nombre.equals(nombre)
+		return username.equals(nombre)
 	}
 }

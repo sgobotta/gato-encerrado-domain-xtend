@@ -35,7 +35,7 @@ class LoginService {
 
 	def void registrarCuenta(Account cuenta) throws MyRegistracionException{
 		
-		var existeCuenta = this.existeCuentaConNombre(cuenta.nombre)
+		var existeCuenta = this.existeCuentaConNombre(cuenta.username)
 		
 		if(!existeCuenta){
 			accounts.add(cuenta)			
@@ -47,7 +47,7 @@ class LoginService {
 	}
 	
 	def void eliminarCuenta(Account cuenta) throws MyEliminandoUsuarioException{
-		var existeCuenta = this.existeCuentaConNombre(cuenta.nombre)
+		var existeCuenta = this.existeCuentaConNombre(cuenta.username)
 		if(existeCuenta){
 			accounts.remove(cuenta)
 		}

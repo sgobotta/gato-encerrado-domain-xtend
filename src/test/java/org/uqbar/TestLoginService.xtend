@@ -20,12 +20,12 @@ class TestLoginService {
 	@Before
 	def void setUp(){
 		pepillo = new Account =>[
-			nombre = 'pepillo'
+			username = 'pepillo'
 			password = '1234'
 		]
 		
 		cepillo = new Account =>[
-			nombre = 'cepillo'
+			username = 'cepillo'
 			password = '1234'
  		]
 		
@@ -34,21 +34,21 @@ class TestLoginService {
 		
 		sudo.registrarCuenta(pepillo)
 		
-		cepilloEstaRegistrado = sudo.existeCuentaConNombre(cepillo.nombre)
+		cepilloEstaRegistrado = sudo.existeCuentaConNombre(cepillo.username)
 		
 	}
 	
 	@Test(expected = MyLoginException)
 	def void testLogearUnUsuarioQueNoExisteArrojaUnaExcepcion(){
 		
-		sudo.login(cepillo.nombre, cepillo.password)
+		sudo.login(cepillo.username, cepillo.password)
 		
-		Assert.assertEquals(false, sudo.existeCuentaConNombre(cepillo.nombre))
+		Assert.assertEquals(false, sudo.existeCuentaConNombre(cepillo.username))
 	}
 	
 	@Test
 	def void testLoguearUnUsuarioQueExisteMeDevuelveEseUsuario(){
-		var loginUsser = sudo.login(pepillo.nombre, pepillo.password)
+		var loginUsser = sudo.login(pepillo.username, pepillo.password)
 		Assert.assertEquals(pepillo, loginUsser)
 	}
 	
@@ -56,7 +56,7 @@ class TestLoginService {
 	def void testRegistrarUnUsuarioConUnNombreQueYaExisteArrojaUnaExcepcion(){
 		
 		sudo.registrarCuenta(pepillo)
-		Assert.assertEquals(true, sudo.existeCuentaConNombre(pepillo.nombre))
+		Assert.assertEquals(true, sudo.existeCuentaConNombre(pepillo.username))
 	}
 	
 	@Test
@@ -65,7 +65,7 @@ class TestLoginService {
 		
 		sudo.registrarCuenta(cepillo)
 		
-		var cepilloLuegoDeRegistrarlo = sudo.existeCuentaConNombre(cepillo.nombre)
+		var cepilloLuegoDeRegistrarlo = sudo.existeCuentaConNombre(cepillo.username)
 		
 		Assert.assertEquals(false, cepilloEstaRegistrado)
 		Assert.assertEquals(true, cepilloLuegoDeRegistrarlo)
@@ -82,7 +82,7 @@ class TestLoginService {
 	def void testEliminarUnaCuentaQueExistaLoSacaDelSistema(){
 		
 		sudo.eliminarCuenta(pepillo)
-		var pepilloLuegoDeEliminarlo = sudo.existeCuentaConNombre(pepillo.nombre)
+		var pepilloLuegoDeEliminarlo = sudo.existeCuentaConNombre(pepillo.username)
 		
 		Assert.assertEquals(pepilloLuegoDeEliminarlo, false)
 	}
