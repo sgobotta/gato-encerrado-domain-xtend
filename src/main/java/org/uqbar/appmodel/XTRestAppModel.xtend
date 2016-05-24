@@ -14,7 +14,6 @@ class XTRestAppModel {
     Jugador jugador
     Laberinto laberintoActual
 
-
     def realizarAccion(int idHabitacion, int idAccion) {
         
 //        Juanma lo entiende
