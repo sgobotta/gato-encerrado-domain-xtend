@@ -92,7 +92,7 @@ class GEWebDummyData {
 		hardMaze.idLaberinto = 1
 		hardMaze.imagePath = ""
 		hardMaze.jugador = null
-
+		hardMaze
 	}
 
 	def getLabs() {
