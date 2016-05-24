@@ -24,6 +24,7 @@ class Habitacion implements ActionAgregable {
 		this.acciones = new ArrayList<Accion>
 		this.first = false
 		this.last = false
+		this.items = new ArrayList<Elemento>
 	}
 	
 	override void agregarAccion(Accion unaAccion) {
