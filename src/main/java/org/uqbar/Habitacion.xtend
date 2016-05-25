@@ -6,7 +6,6 @@ import java.util.ArrayList
 import org.uqbar.commons.utils.Observable
 import org.uqbar.acciones.ActionAgregable
 import org.uqbar.acciones.Accion
-import org.uqbar.jugador.Elemento
 
 @Accessors
 @Observable
@@ -18,13 +17,11 @@ class Habitacion implements ActionAgregable {
 	boolean first
 	boolean last
 	List<Accion> acciones
-	List<Elemento> items
 	
 	new() {
 		this.acciones = new ArrayList<Accion>
 		this.first = false
 		this.last = false
-		this.items = new ArrayList<Elemento>
 	}
 	
 	override void agregarAccion(Accion unaAccion) {

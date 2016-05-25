@@ -87,11 +87,8 @@ class GEWebDummyData {
 		hardMaze.habitaciones.add(h56)
 		hardMaze.habitaciones.add(h55)
 		hardMaze.habitaciones.add(h39)
-		hardMaze.first = h11
-		hardMaze.last = h39
 		hardMaze.idLaberinto = 1
 		hardMaze.imagePath = ""
-		hardMaze.jugador = null
 		hardMaze
 	}
 
@@ -103,11 +100,8 @@ class GEWebDummyData {
 		var cueva = new Laberinto()
 		cueva.nombreLaberinto = "Cueva"
 		cueva.habitaciones.add(entrada)
-		cueva.first = entrada
-		cueva.last = null
 		cueva.idLaberinto = 1
 		cueva.imagePath = ""
-		cueva.jugador = null
 
 		var catarata = new Habitacion()
 		catarata.nombreHabitacion = "Catarata"
@@ -115,11 +109,8 @@ class GEWebDummyData {
 		var cascada = new Laberinto()
 		cascada.nombreLaberinto = "Cascada"
 		cascada.habitaciones.add(catarata)
-		cascada.first = catarata
-		cascada.last = null
 		cascada.idLaberinto = 2
 		cascada.imagePath = ""
-		cascada.jugador = null
 
 		labs.add(cueva)
 		labs.add(cascada)
