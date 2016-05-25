@@ -3,12 +3,10 @@ package org.uqbar
 import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
 import java.util.ArrayList
-import org.uqbar.commons.utils.Observable
 import org.uqbar.acciones.ActionAgregable
 import org.uqbar.acciones.Accion
 
 @Accessors
-@Observable
 class Habitacion implements ActionAgregable {
 
     Integer id

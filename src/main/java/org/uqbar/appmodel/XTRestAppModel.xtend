@@ -14,6 +14,11 @@ class XTRestAppModel {
     Jugador jugador
     Laberinto laberintoActual
 
+	def nuevoJuego(Laberinto laberinto, Jugador jugador){
+		this.laberintoActual = laberinto;
+		this.jugador = jugador;
+	}
+
     def realizarAccion(int idHabitacion, int idAccion) {
         
 //        Juanma lo entiende
