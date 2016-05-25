@@ -13,10 +13,15 @@ class IrAHabitacion extends Accion {
 
 	}
 	
-	// Hay que agregar lo que devuelve si hacemos que devuelva una RespuestaDeRealizarAccion 
-	//(Tendríamos que armar la dependency del xtrest project)
 	override realizarAccion(Habitacion habitacion, Jugador jugador) {
 		jugador.moverAHabitacion(this.habitacion)
+		if(this.habitacion.last){
+			var response = new RespuestaDeRealizarAccionModel("ganar")
+			response
+		} else {
+			var response = new RespuestaDeRealizarAccionModel(this.habitacion.id)
+			response
+		}
 	}
 	
 	def setHabitacion(Habitacion hab){

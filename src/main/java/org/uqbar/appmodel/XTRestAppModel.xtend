@@ -6,6 +6,7 @@ import org.uqbar.Laberinto
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.Habitacion
 import org.uqbar.acciones.Accion
+import org.uqbar.acciones.RespuestaDeRealizarAccionModel
 
 @Accessors
 class XTRestAppModel {
@@ -19,7 +20,7 @@ class XTRestAppModel {
 		this.jugador = jugador;
 	}
 
-    def realizarAccion(int idHabitacion, int idAccion) {
+    def RespuestaDeRealizarAccionModel realizarAccion(int idHabitacion, int idAccion) {
         
 //        Juanma lo entiende
 //        accion = R.findAccionByid(idAccion)

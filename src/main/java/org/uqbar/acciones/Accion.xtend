@@ -17,7 +17,7 @@ abstract class Accion {
 		// Agregado para cumplir con Java Bean
 	}
 
-	def abstract void realizarAccion(Habitacion unaHabitacion, Jugador unJugador)
+	def abstract RespuestaDeRealizarAccionModel realizarAccion(Habitacion unaHabitacion, Jugador unJugador)
 	
 	def Elemento getItem(){
 		null

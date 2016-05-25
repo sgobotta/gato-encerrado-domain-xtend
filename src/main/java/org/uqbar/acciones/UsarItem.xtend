@@ -15,13 +15,16 @@ class UsarItem extends Accion implements ActionAgregable {
 		
 	}	
 	
-	// Hay que agregar lo que devuelve si hacemos que devuelva una RespuestaDeRealizarAccion 
-	//(Tendríamos que armar la dependency del xtrest project)
 	override realizarAccion(Habitacion habitacion, Jugador jugador) {
 		if(jugador.tieneItem(item)){
-		habitacion.agregarAccion(accion)
-		jugador.eliminarItem(item)
-		habitacion.eliminarAccion(this)
+			habitacion.agregarAccion(accion)
+			jugador.eliminarItem(item)
+			habitacion.eliminarAccion(this)
+			var response = new RespuestaDeRealizarAccionModel(this.accion, this.item)
+			response
+		} else {
+			var response = new RespuestaDeRealizarAccionModel("nada")
+			response
 		}
 	}
 	

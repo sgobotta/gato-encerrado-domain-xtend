@@ -13,11 +13,12 @@ class AgarrarItem extends Accion {
 	new() {
 	    
 	}
-	// Hay que agregar lo que devuelve si hacemos que devuelva una RespuestaDeRealizarAccion 
-	//(Tendríamos que armar la dependency del xtrest project)
+
 	override realizarAccion(Habitacion habitacion, Jugador jugador) {
 		 jugador.agarrarItem(item)
 		 habitacion.eliminarAccion(this)
+		 var response = new RespuestaDeRealizarAccionModel(item)
+		 response
 	}
 	
 	override getItemName(){
