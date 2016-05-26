@@ -23,7 +23,7 @@ class UsarItem extends Accion implements ActionAgregable {
 			var response = new RespuestaDeRealizarAccionModel(this.accion, this.item)
 			response
 		} else {
-			var response = new RespuestaDeRealizarAccionModel("nada")
+			var response = new RespuestaDeRealizarAccionModel("sinItem", this.item.nombre)
 			response
 		}
 	}

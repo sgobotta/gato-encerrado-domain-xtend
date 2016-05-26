@@ -9,6 +9,7 @@ class RespuestaDeRealizarAccionModel {
 	Elemento item
 	Accion action
 	int idHabitacion
+	String extra
 	
 	new(Elemento itemToAdd){
     	this.type = "agarrarItem"
@@ -24,6 +25,11 @@ class RespuestaDeRealizarAccionModel {
 	new(int id){
 		this.type = "irAHabitacion"
 		this.idHabitacion = id
+	}
+	
+	new(String type, String itemName){
+	    this.type = type
+	    this.extra = itemName
 	}
 	
 	new(String type){
