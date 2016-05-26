@@ -25,8 +25,13 @@ class IrAHabitacion extends Accion {
 	}
 	
 	def setHabitacion(Habitacion hab){
-		this.habitacion = hab
-		setNombre("Ir a la habitacion "+ this.habitacion.nombreHabitacion)
+		if(!hab.last){
+			this.habitacion = hab
+			setNombre("Ir a la habitacion "+ this.habitacion.nombreHabitacion)
+		} else {
+			this.habitacion = hab
+			setNombre("Salir por la " + this.habitacion.nombreHabitacion)
+		}
 	}
 
 }
