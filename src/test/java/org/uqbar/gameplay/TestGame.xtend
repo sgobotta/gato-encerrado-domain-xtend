@@ -13,9 +13,13 @@ import org.uqbar.appmodel.XTRestAppModel
 import static org.junit.Assert.*
 import org.uqbar.exceptions.ActionIsNotOnThisRoomException
 import org.uqbar.exceptions.PlayerIsNotOnThisRoomException
+import org.uqbar.Usuario
+import org.uqbar.exceptions.UserDoesNotHaveLabException
+import org.uqbar.exceptions.UserCantExecuteActionException
 
 class TestGame {
 	XTRestAppModel game
+	Usuario user
 	Laberinto lab
 	Jugador jugador
 	
@@ -104,13 +108,28 @@ class TestGame {
 		
 		this.jugador = new Jugador()
 		
-		this.game.nuevoJuego(this.lab, this.jugador)		
+		this.user = new Usuario() => [
+			id	= 1
+			nombre = "Pepe"
+		]
+		this.user.agregarLaberinto(this.lab)
+		
+		this.game.nuevoJuego(this.user, this.lab, this.jugador)		
+	}
+	
+	@Test (expected = UserDoesNotHaveLabException)
+	def void testUnNuevoJuegoSoloSePuedeIniciarSiElUsuarioTieneElLaberintoEnSuLista(){
+		this.user.eliminarLaberinto(this.lab)
+		this.game.nuevoJuego(this.user, this.lab, this.jugador)
 	}
 	
 	@Test
 	def void testUnNuevoJuegoSeIniciaEnLaHabitacionInicial(){
 		assertEquals(1, jugador.habitacionActual.id)
 	}
+	
+	// estos test se prueban usando el realizar accion interno, para que sea más simple testearlo dado que 
+	// el externo no aporta nada a los tests y solo checkea un user id.
 	
 	@Test
 	def void testAlRealizarIrAHabitacionAccionElJugadorCambiaDeHabitacion(){
@@ -153,5 +172,17 @@ class TestGame {
 		assertEquals(2, jugador.habitacionActual.acciones.get(0).id)
 		assertEquals(5, jugador.habitacionActual.acciones.get(1).id)	// Esta es la accion que se tenia que agregar
 		assertEquals(0, jugador.inventario.size())						// y se borro el item del inventario			
+	}
+	
+	@Test (expected = UserCantExecuteActionException)
+	def void testUnaAccionSoloSePuedeRealizarSiElUsuarioEsElUsuarioQueInicioElJuego(){
+		this.game.realizarAccion(1,2,2) // el ultimo id es del user de ID 2, que no es el user que inicio el juego, el que lo hizo fue le id 1
+	}
+	
+	@Test 
+	def void testUnaAccionSePuedeRealizarSiElUsuarioEsElUsuarioQueInicioElJuego(){
+		assertEquals(1, jugador.habitacionActual.id)
+		this.game.realizarAccion(1,2,1)
+		assertEquals(2, jugador.habitacionActual.id)	
 	}
 }
