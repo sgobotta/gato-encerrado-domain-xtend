@@ -31,4 +31,14 @@ class Laberinto {
 		}
 		return list
 	}
+	
+	def getHabitacionInicial(){
+		var Habitacion res = null;
+		for(hab : this.habitaciones){
+			if(hab.first){
+				res = hab
+			}
+		}
+		return res
+	}
 }

@@ -7,6 +7,8 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.Habitacion
 import org.uqbar.acciones.Accion
 import org.uqbar.acciones.RespuestaDeRealizarAccionModel
+import org.uqbar.exceptions.ActionIsNotOnThisRoomException
+import org.uqbar.exceptions.PlayerIsNotOnThisRoomException
 
 @Accessors
 class XTRestAppModel {
@@ -18,45 +20,30 @@ class XTRestAppModel {
 	def nuevoJuego(Laberinto laberinto, Jugador jugador){
 		this.laberintoActual = laberinto;
 		this.jugador = jugador;
+		this.jugador.habitacionActual = laberintoActual.getHabitacionInicial
 	}
 
     def RespuestaDeRealizarAccionModel realizarAccion(int idHabitacion, int idAccion) {
-        
-//        Juanma lo entiende
-//        accion = R.findAccionByid(idAccion)
-//        
-//        accion.realizarAccion(R.findHabitacionOById(idHabitacion), this.jugador)
 
 		var accion = findAccionById(idAccion)
-		var habitacion = findHabitacionById(idHabitacion)
 		
-		if(accion != null && habitacion != null){
-			accion.realizarAccion(habitacion, jugador)
+		if(accion != null && this.jugador.habitacionActual.id == idHabitacion){
+			accion.realizarAccion(jugador.habitacionActual, jugador)
+		} else if(this.jugador.habitacionActual.id != idHabitacion){
+			throw new PlayerIsNotOnThisRoomException()
 		} else {
-			// Exception?
+			throw new ActionIsNotOnThisRoomException()			
 		}
     }
     
     // Horrible, lo sé, pero es lo único que se me ocurrió
     def findAccionById(int id){
 		var Accion res = null
-    	for(hab : laberintoActual.habitaciones){
-    		for(acc : hab.acciones){
-    			if(acc.id == id){
-    				res = acc
-    			}
-    		}
-    	}
-    	res
-    }
-    
-    def findHabitacionById(int id){
-		var Habitacion res = null
-    	for(hab : laberintoActual.habitaciones){
-    		if(hab.id == id){
-    			res = hab
-    		}
-    	}
+		for(acc : jugador.habitacionActual.acciones){
+			if(acc.id == id){
+				res = acc
+			}
+		}
     	res
     }
 
