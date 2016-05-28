@@ -37,4 +37,13 @@ class Usuario {
 		laberinto.eliminarHabitacion(habitacion)
 	}
 	
+	def hasLabOfId(int idLab){
+		var res = false
+		for(laberinto : this.laberintos){
+			if(laberinto.idLaberinto == idLab){
+				res = true
+			}
+		}
+		res
+	}
 }
