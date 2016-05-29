@@ -19,7 +19,7 @@ class XTRestAppModel {
     Laberinto laberintoActual
 
 	def nuevoJuego(Usuario usuario, Laberinto laberinto, Jugador jugador){
-		if(usuario.laberintos.contains(laberinto)){
+		if(usuario.hasLabOfId(laberinto.idLaberinto)){
 			this.usuario = usuario
 			this.laberintoActual = laberinto
 			this.jugador = jugador
