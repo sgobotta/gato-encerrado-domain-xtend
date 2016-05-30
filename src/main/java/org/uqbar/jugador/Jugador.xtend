@@ -32,4 +32,18 @@ class Jugador {
 		inventario.contains(item)
 	}
 	
+	def eliminarItemPorId(int idItem){
+	    this.eliminarItem(this.getItemById(idItem))
+	}
+	
+    def getItemById(int idItem){
+        var Elemento elemento = null 
+        for(Elemento item:this.inventario){
+            if(item.id == idItem){
+                elemento = item
+            }
+        }
+        elemento
+    }
+	
 }

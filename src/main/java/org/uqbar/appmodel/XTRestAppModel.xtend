@@ -10,6 +10,7 @@ import org.uqbar.exceptions.ActionIsNotOnThisRoomException
 import org.uqbar.exceptions.PlayerIsNotOnThisRoomException
 import org.uqbar.exceptions.UserDoesNotHaveLabException
 import org.uqbar.exceptions.UserCantExecuteActionException
+import org.uqbar.acciones.RespuestaDeTirarItem
 
 @Accessors
 class XTRestAppModel {
@@ -48,6 +49,12 @@ class XTRestAppModel {
 		} else {
 			throw new ActionIsNotOnThisRoomException()			
 		}
+    }
+    
+    def tirarItem(int idUsuario, int idItem){
+        if(this.usuario.id == idUsuario){
+            this.jugador.eliminarItemPorId(idItem)
+        }
     }
     
     def findAccionById(int id){
