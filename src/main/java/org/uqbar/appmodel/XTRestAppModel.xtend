@@ -10,7 +10,6 @@ import org.uqbar.exceptions.ActionIsNotOnThisRoomException
 import org.uqbar.exceptions.PlayerIsNotOnThisRoomException
 import org.uqbar.exceptions.UserDoesNotHaveLabException
 import org.uqbar.exceptions.UserCantExecuteActionException
-import org.uqbar.acciones.RespuestaDeTirarItem
 
 @Accessors
 class XTRestAppModel {

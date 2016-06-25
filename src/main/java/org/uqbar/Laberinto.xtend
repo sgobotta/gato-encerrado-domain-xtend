@@ -11,9 +11,11 @@ class Laberinto {
 	List<Habitacion> habitaciones
 	Integer idLaberinto
 	String imagePath
+	boolean isPlaying
 	
 	new() {
 		this.habitaciones = new ArrayList<Habitacion>
+		this.isPlaying = false
 	}
 	
 	def agregarHabitacion(Habitacion unaHabitacion) {
